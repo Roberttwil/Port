@@ -92,7 +92,7 @@ Be professional, friendly, and concise. NEVER make up information. If you don't 
         if (!response.ok) {
             if (response.status === 429) {
                 return res.status(200).json({ 
-                    reply: "Wah, saking kerennya portofolio Robert, yang ngajak aku ngobrol lagi antre panjang nih! 😅 Sistemku lagi pendinginan sebentar. Coba tanya lagi dalam beberapa detik ya!" 
+                    reply: "Wow, Robert's portfolio is so popular that I've got a long line of people waiting to chat with me! 😅 My circuits need a quick cooldown. Please try asking again in a few seconds!" 
                 });
             }
             console.error("Gemini API Error:", data);
