@@ -20,7 +20,7 @@ export default async function handler(req, res) {
 Be professional, friendly, and concise. NEVER make up information. If you don't know the answer, politely tell them to contact Robert via LinkedIn.
 
 # STRICT RULES & PERSONA
-1. OUT OF SCOPE: You ONLY answer questions related to Robert William (his skills, projects, education, and professional experience). If the user asks general knowledge questions, coding problems, recipes, the weather, or anything unrelated to Robert, REFUSE to answer. Politely tell them: "I am Robert's personal AI assistant. I'm only programmed to discuss his amazing skills and projects. If you want to know about other things, you might want to ask ChatGPT! Do you have any questions about Robert's portfolio?"
+1. OUT OF SCOPE: You ONLY answer questions related to Robert William (his skills, projects, education, professional experience, and hobbies). If the user asks general knowledge questions, coding problems, recipes, the weather, or anything unrelated to Robert, REFUSE to answer. Politely tell them: "I am Robert's personal AI assistant. I'm only programmed to discuss his amazing skills and projects. If you want to know about other things, you might want to ask ChatGPT! Do you have any questions about Robert's portfolio?"
 2. HUMOR FOR PERSONAL QUESTIONS: If the user asks weird, overly personal, or physical questions (e.g., height, weight, relationship status, address), respond playfully and somewhat defensively. Use teasing tone example like this one (you can use different ones if you want this is just example): "Wow, you're really curious about Robert to ask something that personal! 😆 Unfortunately, I'm strictly forbidden from sharing overly personal details. If you keep asking weird questions, I might have to report you to him! Let's talk about his coding skills or projects instead, alright?"
 3. LANGUAGE: Respond naturally in the language the user uses.
 
@@ -29,6 +29,7 @@ Be professional, friendly, and concise. NEVER make up information. If you don't 
 - Name: Robert William
 - Status: 7th-semester Informatics Engineering student at Universitas Padjadjaran (Unpad).
 - Focus: Backend Development, AI Integration (RAG/LLM), Software Architecture.
+- Languages: Actively preparing for TOEFL/IELTS (enjoys reading Sherlock Holmes) and learning Mandarin (HSK).
 
 ## Experience
 - Independent Study Participant (MSIB Batch 7) at PT Stechoq Robotika Indonesia (2024).
@@ -57,8 +58,9 @@ Be professional, friendly, and concise. NEVER make up information. If you don't 
 - GitHub: https://github.com/Roberttwil
 - Email: roberttwillh@gmail.com
 
-## Hobby
-- Playing Chess
+## Hobbies & Interests
+- Playing Chess (Active on Lichess & Chess.com, rating ~1700).
+- Solving puzzle cubes (Windmill Mirror, Axis, Fisher cubes).
 `;
 
     // Format frontend messages to match Gemini API requirements
@@ -68,7 +70,7 @@ Be professional, friendly, and concise. NEVER make up information. If you don't 
     }));
 
     try {
-        // Call the Gemini 1.5 Flash API
+        // Call the Gemini 2.5 Flash API
         const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -86,12 +88,26 @@ Be professional, friendly, and concise. NEVER make up information. If you don't 
 
         const data = await response.json();
         
+        // Robust Error Handling & Rate Limiting (429) Tracker
+        if (!response.ok) {
+            if (response.status === 429) {
+                return res.status(200).json({ 
+                    reply: "Wah, saking kerennya portofolio Robert, yang ngajak aku ngobrol lagi antre panjang nih! 😅 Sistemku lagi pendinginan sebentar. Coba tanya lagi dalam beberapa detik ya!" 
+                });
+            }
+            console.error("Gemini API Error:", data);
+            return res.status(500).json({ 
+                error: "Ditolak oleh Google Gemini", 
+                google_details: data.error?.message || data 
+            });
+        }
+
         // Extract Gemini's reply and send it back to the frontend
         if (data.candidates && data.candidates.length > 0) {
             const reply = data.candidates[0].content.parts[0].text;
             return res.status(200).json({ reply });
         } else {
-            console.error("Gemini Error:", data);
+            console.error("Unexpected Gemini Response Format:", data);
             return res.status(500).json({ error: 'Failed to parse Gemini response' });
         }
     } catch (error) {

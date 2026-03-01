@@ -343,7 +343,7 @@
 
         <div class="p-3 bg-white border-t border-slate-100 flex gap-2">
             <input type="text" id="ai-chat-input" placeholder="Type your question..." class="flex-grow px-4 py-2 border border-slate-200 rounded-full text-sm focus:outline-none focus:border-blue-300 focus:ring-1 focus:ring-blue-200 transition" onkeypress="handleAIChatKey(event)">
-            <button onclick="sendUserAIMessage()" class="bg-blue-600 text-white rounded-full w-10 h-10 flex-shrink-0 flex items-center justify-center hover:bg-blue-700 transition duration-300 shadow">
+            <button id="ai-send-btn" onclick="sendUserAIMessage()" class="bg-blue-600 text-white rounded-full w-10 h-10 flex-shrink-0 flex items-center justify-center hover:bg-blue-700 transition duration-300 shadow">
                 <svg class="w-5 h-5 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
             </button>
         </div>
@@ -400,6 +400,9 @@
 
         // Maintain conversation history for context
         let chatHistory = [];
+        
+        // UPDATE: Variabel Gembok Anti-Spam
+        let isWaitingForResponse = false;
 
         function toggleAIChat() {
             if (chatWindow.classList.contains('hidden')) {
@@ -426,11 +429,9 @@
 
         // Fetch response from Vercel Serverless Function
         async function fetchGeminiResponse(userMessage) {
-            // Push user message to context array
             chatHistory.push({ role: "user", content: userMessage });
 
             try {
-                // Call local endpoint (which protects the API key)
                 const response = await fetch('/api/chat', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
@@ -440,7 +441,6 @@
                 const data = await response.json();
 
                 if (response.ok && data.reply) {
-                    // Push bot response to context array
                     chatHistory.push({ role: "model", content: data.reply });
                     return data.reply;
                 } else {
@@ -453,9 +453,19 @@
             }
         }
 
+        // UPDATE: Fungsi dengan Anti-Spam dan Kunci UI
         async function sendUserAIMessage() {
+            // Kalau lagi nunggu jawaban/cooldown, abaikan klik
+            if (isWaitingForResponse) return;
+
             const messageText = chatInput.value.trim();
             if (messageText === "") return;
+
+            // Kunci input dan tombol biar gak dispam
+            isWaitingForResponse = true;
+            chatInput.disabled = true;
+            const sendBtn = document.getElementById('ai-send-btn');
+            if (sendBtn) sendBtn.style.opacity = '0.5';
 
             // 1. Display User Message
             appendMessage(messageText, 'user');
@@ -473,6 +483,14 @@
             hideTypingIndicator();
             appendMessage(botResponse, 'bot');
             scrollToBottom();
+
+            // 5. Buka kunci setelah jeda 4 detik (Mencegah Limit 15/menit Google)
+            setTimeout(() => {
+                isWaitingForResponse = false;
+                chatInput.disabled = false;
+                if (sendBtn) sendBtn.style.opacity = '1';
+                chatInput.focus();
+            }, 4000);
         }
 
         function appendMessage(text, sender) {
