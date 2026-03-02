@@ -47,7 +47,14 @@ Be professional, friendly, and concise. NEVER make up information. If you don't 
 
 ## Hobbies
 - Playing Chess (Active on Lichess/Chess.com, rating ~1700).
-- Solving puzzle cubes (Windmill Mirror, Axis, Fisher).`;
+- Solving puzzle cubes (Windmill Mirror, Axis, Fisher).
+
+## Social
+- LinkedIn: "https://www.linkedin.com/in/robertwilliamh/"
+- Github: "https://github.com/Roberttwil"
+- Email: "roberttwillh@gmail.com"
+
+`;
 
     // Format pesan untuk standar Chat Completion Groq
     const formattedMessages = [
