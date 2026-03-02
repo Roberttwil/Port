@@ -77,15 +77,15 @@ Be professional, friendly, and concise. NEVER make up information. If you don't 
         const data = await response.json();
         
         // Tangani Rate Limit (429) atau error API lainnya
-        if (!response.ok) {
-            if (response.status === 429) {
-                return res.status(200).json({ 
-                    reply: "Wow, Robert's portfolio is so popular right now! 😅 My circuits need a quick cooldown. Please try asking again in a few seconds!" 
-                });
-            }
-            console.error("Groq API Error:", data);
-            return res.status(500).json({ error: "API Error", message: data.error?.message });
-        }
+        // if (!response.ok) {
+        //     if (response.status === 429) {
+        //         return res.status(200).json({ 
+        //             reply: "Wow, Robert's portfolio is so popular right now! 😅 My circuits need a quick cooldown. Please try asking again in a few seconds!" 
+        //         });
+        //     }
+        //     console.error("Groq API Error:", data);
+        //     return res.status(500).json({ error: "API Error", message: data.error?.message });
+        // }
 
         // Ambil jawaban AI dan kirim ke frontend
         if (data.choices && data.choices.length > 0) {
