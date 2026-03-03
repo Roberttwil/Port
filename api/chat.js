@@ -168,7 +168,7 @@ Be professional, friendly, and concise. NEVER make up information. If you don't 
 ## Contact & Social Media
 - LinkedIn: https://www.linkedin.com/in/robertwilliamh/
 - GitHub: https://github.com/Roberttwil
-- Email: roberttwillh@gmail.com
+- Email: https://roberttwillh@gmail.com
 `;
 
     const formattedMessages = [
