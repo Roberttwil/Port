@@ -163,7 +163,9 @@ Be professional, friendly, and concise. NEVER make up information. If you don't 
 ## Hobbies & Personal Interests
 - Chess: Actively plays on Lichess and Chess.com, with a rating of around 1700 in rapid mode on chess.com and 1800 on Lichess . Enjoys both casual and competitive games.
 - Puzzle Cubes: Enjoys solving complex twisty puzzles including Windmill, Mirror, Axis, and Fisher cubes — beyond the standard 3x3 Rubik's Cube.
-- Languages: Currently preparing for TOEFL/IELTS (English proficiency) and learning Mandarin Chinese (working towards HSK certification).
+
+##Languages
+English (Proficient) and Currently preparing for TOEFL/IELTS to further certify my proficiency. Additionally, I am learning Mandarin Chinese, actively working towards my HSK certification.
 
 ## Contact & Social Media
 - LinkedIn: https://www.linkedin.com/in/robertwilliamh/
