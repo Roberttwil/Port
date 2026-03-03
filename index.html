@@ -394,6 +394,8 @@
         function parseMarkdown(text) {
             // Bold
             let html = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+            // Clickable links
+            html = html.replace(/(https?:\/\/[^\s\)\"<]+)/g, '<a href="$1" target="_blank" class="text-blue-600 underline break-all hover:text-blue-800">$1</a>');
             // Split into lines, group numbered & bullet lists
             const lines = html.split('\n');
             const result = [];
