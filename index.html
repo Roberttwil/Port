@@ -238,7 +238,8 @@
         </div>
     </footer>
 
-      <div id="modal-edusign" class="hidden fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-[10000] flex items-center justify-center p-4 transition-all duration-300 opacity-0">
+    <!-- Modal EduSign — FIXED: structure now matches modal-rag -->
+    <div id="modal-edusign" class="hidden fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-[10000] flex items-center justify-center p-4 transition-all duration-300 opacity-0">
         <div class="bg-white rounded-2xl max-w-3xl w-full p-8 md:p-10 relative transform scale-95 transition-transform duration-300 max-h-[90vh] overflow-y-auto">
             <button onclick="closeModal('modal-edusign')" class="absolute top-5 right-5 w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 text-slate-500 hover:bg-slate-200 hover:text-slate-900 transition">&times;</button>
             <div class="mb-6 inline-block px-3 py-1 bg-blue-100 text-blue-700 rounded-lg text-sm font-bold tracking-wide uppercase">Engineering Details</div>
@@ -390,9 +391,39 @@
             appendMessage(res, 'bot'); isWaiting = false;
         }
 
+        function parseMarkdown(text) {
+            // Bold
+            let html = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+            // Split into lines, group numbered & bullet lists
+            const lines = html.split('\n');
+            const result = [];
+            let inOl = false, inUl = false;
+            for (let line of lines) {
+                const olMatch = line.match(/^(\d+)\.\s+(.+)/);
+                const ulMatch = line.match(/^[*-]\s+(.+)/);
+                if (olMatch) {
+                    if (!inOl) { result.push('<ol class="list-decimal list-outside ml-4 space-y-1 my-1">'); inOl = true; }
+                    if (inUl) { result.push('</ul>'); inUl = false; }
+                    result.push(`<li>${olMatch[2]}</li>`);
+                } else if (ulMatch) {
+                    if (!inUl) { result.push('<ul class="list-disc list-outside ml-4 space-y-1 my-1">'); inUl = true; }
+                    if (inOl) { result.push('</ol>'); inOl = false; }
+                    result.push(`<li>${ulMatch[1]}</li>`);
+                } else {
+                    if (inOl) { result.push('</ol>'); inOl = false; }
+                    if (inUl) { result.push('</ul>'); inUl = false; }
+                    result.push(line ? `<p>${line}</p>` : '');
+                }
+            }
+            if (inOl) result.push('</ol>');
+            if (inUl) result.push('</ul>');
+            return result.join('');
+        }
+
         function appendMessage(t, s) {
             const d = document.createElement('div'); d.className = `flex items-start gap-3 ${s==='user'?'justify-end':''}`;
-            d.innerHTML = s === 'bot' ? `<img src="images/rob_ai.png" class="w-8 h-8 rounded-full border object-cover mt-1"><div class="bg-white p-3 rounded-xl rounded-bl-none shadow-sm border border-slate-100 text-sm max-w-[85%]">${t}</div>` : `<div class="bg-blue-600 text-white p-3 rounded-xl rounded-br-none shadow-md text-sm max-w-[85%]">${t}</div>`;
+            const formatted = s === 'bot' ? parseMarkdown(t) : t;
+            d.innerHTML = s === 'bot' ? `<img src="images/rob_ai.png" class="w-8 h-8 rounded-full border object-cover mt-1"><div class="bg-white p-3 rounded-xl rounded-bl-none shadow-sm border border-slate-100 text-sm max-w-[85%] leading-relaxed">${formatted}</div>` : `<div class="bg-blue-600 text-white p-3 rounded-xl rounded-br-none shadow-md text-sm max-w-[85%]">${t}</div>`;
             chatMessages.insertBefore(d, typingIndicator); chatMessages.scrollTop = chatMessages.scrollHeight;
         }
     </script>
