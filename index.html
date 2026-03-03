@@ -8,30 +8,16 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
         body { font-family: 'Plus Jakarta Sans', sans-serif; }
-        
-        /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #f1f5f9; }
         ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
-
-        /* Scroll Animations */
-        .fade-in-up {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-        .fade-in-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Typing Animation for Chat Bot */
+        .fade-in-up { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .fade-in-up.visible { opacity: 1; transform: translateY(0); }
         .dot { animation: mercuryTypingAnimation 1.5s infinite ease-in-out; }
         .dot:nth-child(1) { animation-delay: 200ms; }
         .dot:nth-child(2) { animation-delay: 300ms; }
         .dot:nth-child(3) { animation-delay: 400ms; }
-
         @keyframes mercuryTypingAnimation {
             0% { transform: translateY(0px); background-color: #cbd5e1; }
             28% { transform: translateY(-5px); background-color: #94a3b8; }
@@ -47,14 +33,12 @@
                 <img src="https://ui-avatars.com/api/?name=Robert+William&background=2563eb&color=fff&size=200" alt="Robert William" class="rounded-full object-cover shadow-2xl border-4 border-white w-full h-full">
                 <div class="absolute bottom-2 right-2 w-5 h-5 bg-green-500 border-2 border-white rounded-full animate-pulse" title="Open to Work"></div>
             </div>
-
             <h1 class="text-4xl md:text-6xl font-bold text-slate-900 mb-4 tracking-tight">Robert William</h1>
             <p class="text-lg md:text-xl text-slate-600 mb-8 max-w-2xl leading-relaxed mx-auto">
                 Informatics Engineering student at Universitas Padjadjaran. Specialized in 
                 <span class="font-semibold text-blue-600">Backend Systems</span>, 
                 <span class="font-semibold text-blue-600">AI Integration</span>, and building high-impact software architectures.
             </p>
-            
             <div class="flex flex-wrap justify-center gap-4">
                 <a href="#projects" class="px-8 py-3 bg-slate-900 text-white font-semibold rounded-full hover:bg-blue-600 transition duration-300 shadow-lg hover:shadow-blue-500/30">View Case Studies</a>
                 <a href="https://github.com/Roberttwil" target="_blank" class="px-8 py-3 bg-white text-slate-900 border border-slate-200 font-semibold rounded-full hover:bg-slate-50 transition duration-300 shadow-sm flex items-center gap-2">
@@ -111,37 +95,57 @@
     <section id="experience" class="py-24 bg-white px-4 border-t border-slate-100">
         <div class="max-w-4xl mx-auto fade-in-up">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-slate-900">Experience</h2>
-            
             <div class="relative border-l-2 border-blue-200 ml-3 md:ml-6 space-y-12">
                 
                 <div class="relative pl-8 md:pl-10">
                     <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-blue-600 border-4 border-white shadow-sm"></div>
                     <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-lg hover:border-blue-100 transition duration-300 group">
                         <div class="flex flex-col md:flex-row md:items-center justify-between mb-3">
-                            <h3 class="font-bold text-xl text-slate-900 group-hover:text-blue-600 transition">Independent Study Participant (MSIB Batch 7)</h3>
-                            <span class="text-sm font-bold text-blue-700 bg-blue-50 px-4 py-1.5 rounded-full w-max mt-3 md:mt-0">2024</span>
+                            <h3 class="font-bold text-xl text-slate-900 group-hover:text-blue-600 transition">AI Engineer Intern</h3>
+                            <span class="text-sm font-bold text-blue-700 bg-blue-50 px-4 py-1.5 rounded-full w-max mt-3 md:mt-0">2025</span>
                         </div>
-                        <p class="text-slate-800 font-semibold mb-3">PT Stechoq Robotika Indonesia</p>
-                        <p class="text-sm text-slate-600 leading-relaxed">
-                            Participated in the Kampus Merdeka MSIB Batch 7 program. Gained hands-on industry experience and developed practical technical skills in a professional software and robotics engineering environment.
-                        </p>
+                        <p class="text-slate-800 font-semibold mb-3">Pusat Inovasi Pengajaran dan Pembelajaran (PIPP) Unpad</p>
+                        <div class="mt-2">
+                            <p class="text-sm text-slate-700 font-medium mb-2">Developed a specialized RAG-based Chatbot for the MIM program:</p>
+                            <ul class="list-disc list-outside ml-4 space-y-1 text-sm text-slate-600 leading-relaxed">
+                                <li>Architected an end-to-end <strong>RAG</strong> pipeline using <strong>Ollama</strong> and <strong>Llama 3.1</strong>.</li>
+                                <li>Implemented <strong>MongoDB Atlas Vector Search</strong> for academic information retrieval.</li>
+                                <li>Optimized prompting strategies for strictly-constrained academic services.</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
                 <div class="relative pl-8 md:pl-10">
                     <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-slate-300 border-4 border-white shadow-sm"></div>
+                    <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-lg hover:border-blue-100 transition duration-300 group">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between mb-3">
+                            <h3 class="font-bold text-xl text-slate-900 group-hover:text-blue-600 transition">Independent Study Participant (MSIB Batch 7)</h3>
+                            <span class="text-sm font-bold text-blue-700 bg-blue-50 px-4 py-1.5 rounded-full w-max mt-3 md:mt-0">2024</span>
+                        </div>
+                        <p class="text-slate-800 font-semibold mb-3">PT Stechoq Robotika Indonesia</p>
+                        <div class="mt-2">
+                            <p class="text-sm text-slate-700 font-medium mb-2">Medical imaging AI classification for chest X-ray analysis:</p>
+                            <ul class="list-disc list-outside ml-4 space-y-1 text-sm text-slate-600 leading-relaxed">
+                                <li>Engineered Deep Learning model using <strong>InceptionV3</strong> architecture.</li>
+                                <li>Achieved <strong>97% accuracy</strong> on classifying Pneumonia, Normal, and COVID-19.</li>
+                                <li>Deployed via <strong>Streamlit</strong>: <a href="https://covid-pneumonia-detector.streamlit.app/" target="_blank" class="text-blue-600 underline">Live Demo</a>.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative pl-8 md:pl-10">
+                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-slate-200 border-4 border-white shadow-sm"></div>
                     <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-lg transition duration-300">
                         <div class="flex flex-col md:flex-row md:items-center justify-between mb-3">
                             <h3 class="font-bold text-xl text-slate-900">Social Department Staff</h3>
                             <span class="text-sm font-bold text-slate-600 bg-slate-100 px-4 py-1.5 rounded-full w-max mt-3 md:mt-0">Jan 2023 - Dec 2023</span>
                         </div>
                         <p class="text-slate-800 font-semibold mb-3">Himpunan Mahasiswa Informatika (Himatif) FMIPA Unpad</p>
-                        <p class="text-sm text-slate-600 leading-relaxed">
-                            Organized social initiatives and managed community engagement programs. Developed strong teamwork, communication, and event management skills within the university's informatics student organization.
-                        </p>
+                        <p class="text-sm text-slate-600 leading-relaxed">Organized social initiatives and managed community engagement programs. Developed strong teamwork within the university organization.</p>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -152,14 +156,13 @@
             <p class="text-center text-slate-500 mb-16 max-w-2xl mx-auto">Deep dive into the complex architectures and engineering challenges I've solved.</p>
             
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                
                 <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-slate-100 flex flex-col fade-in-up">
-                    <div class="h-48 bg-gradient-to-tr from-blue-100 to-indigo-50 flex items-center justify-center">
-                        <span class="text-blue-400 font-semibold">[EduSign Visual]</span>
+                    <div class="h-48 bg-gradient-to-tr from-blue-100 to-indigo-50 flex flex-col items-center justify-center p-6">
+                        <img src="images/edusign_logo.jpeg" alt="EduSign Logo" class="h-20 w-auto object-contain drop-shadow-md mb-3">
                     </div>
                     <div class="p-8 flex-grow flex flex-col items-start">
                         <h3 class="font-bold text-2xl mb-2 text-slate-900">EduSign App</h3>
-                        <p class="text-slate-600 mb-6 flex-grow">Accessibility app featuring automated sign language video synthesis and AI-driven quiz generation.</p>
+                        <p class="text-slate-600 mb-6 flex-grow text-sm">Automated sign language video synthesis and AI-driven quiz generation.</p>
                         <button onclick="openModal('modal-edusign')" class="text-blue-600 font-semibold flex items-center gap-2 hover:gap-3 transition-all">
                             Read Engineering Details <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                         </button>
@@ -167,12 +170,12 @@
                 </div>
 
                 <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-slate-100 flex flex-col fade-in-up" style="transition-delay: 100ms;">
-                    <div class="h-48 bg-gradient-to-tr from-emerald-100 to-teal-50 flex items-center justify-center">
-                        <span class="text-emerald-400 font-semibold">[Chatbot Visual]</span>
+                    <div class="h-48 overflow-hidden">
+                        <img src="images/RAG.png" alt="RAG Architecture" class="w-full h-full object-cover">
                     </div>
                     <div class="p-8 flex-grow flex flex-col items-start">
                         <h3 class="font-bold text-2xl mb-2 text-slate-900">Academic RAG Chatbot</h3>
-                        <p class="text-slate-600 mb-6 flex-grow">A highly constrained, hallucination-free AI assistant powered by Llama 3.1 and Vector Search.</p>
+                        <p class="text-slate-600 mb-6 flex-grow text-sm">Hallucination-free AI assistant powered by Llama 3.1 and Vector Search.</p>
                         <button onclick="openModal('modal-rag')" class="text-emerald-600 font-semibold flex items-center gap-2 hover:gap-3 transition-all">
                             Read Engineering Details <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                         </button>
@@ -180,18 +183,17 @@
                 </div>
 
                 <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-slate-100 flex flex-col fade-in-up" style="transition-delay: 200ms;">
-                    <div class="h-48 bg-gradient-to-tr from-purple-100 to-pink-50 flex items-center justify-center">
-                        <span class="text-purple-400 font-semibold">[Food Rescue Visual]</span>
+                    <div class="h-48 overflow-hidden">
+                        <img src="images/dashboard.png" alt="Dashboard Rescue" class="w-full h-full object-cover">
                     </div>
                     <div class="p-8 flex-grow flex flex-col items-start">
                         <h3 class="font-bold text-2xl mb-2 text-slate-900">Food Rescue Platform</h3>
-                        <p class="text-slate-600 mb-6 flex-grow">Project Management for a location-based surplus food delivery app ensuring robust SDLC.</p>
+                        <p class="text-slate-600 mb-6 flex-grow text-sm">Project Management for a location-based surplus food delivery app ensuring robust SDLC.</p>
                         <button onclick="openModal('modal-pm')" class="text-purple-600 font-semibold flex items-center gap-2 hover:gap-3 transition-all">
                             Read Engineering Details <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                         </button>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -199,39 +201,31 @@
     <section class="py-24 bg-white px-4 border-t border-slate-100">
         <div class="max-w-5xl mx-auto fade-in-up">
             <h2 class="text-3xl font-bold mb-10 text-slate-900">Other Explorations & Archives</h2>
-            
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                
                 <div class="p-6 border border-slate-200 rounded-xl hover:border-blue-400 transition group bg-white">
                     <h4 class="font-bold text-lg text-slate-900 group-hover:text-blue-600 transition">Brain Tumor Classification (Thesis)</h4>
-                    <p class="text-sm text-slate-600 mt-2">Medical image classification using Deep Learning (EfficientNetV2S architecture) for accurate tumor detection.</p>
+                    <p class="text-sm text-slate-600 mt-2">Medical image classification using EfficientNetV2S architecture for accurate tumor detection.</p>
                 </div>
-                
                 <div class="p-6 border border-slate-200 rounded-xl hover:border-blue-400 transition group bg-white">
                     <h4 class="font-bold text-lg text-slate-900 group-hover:text-blue-600 transition">LittleNest (VR Simulation)</h4>
-                    <p class="text-sm text-slate-600 mt-2">A Virtual Reality game focusing on Human-Computer Interaction (HCI) simulating infant care routines.</p>
+                    <p class="text-sm text-slate-600 mt-2">A Virtual Reality game focusing on HCI simulating infant care routines.</p>
                 </div>
-
                 <div class="p-6 border border-slate-200 rounded-xl hover:border-blue-400 transition group bg-white">
                     <h4 class="font-bold text-lg text-slate-900 group-hover:text-blue-600 transition">Mental Health Classifier Web</h4>
-                    <p class="text-sm text-slate-600 mt-2">End-to-end ML deployment via Streamlit using XGBoost to classify conditions based on DSM-5 parameters.</p>
+                    <p class="text-sm text-slate-600 mt-2">End-to-end ML deployment using Streamlit and XGBoost based on DSM-5 parameters.</p>
                 </div>
-
                 <div class="p-6 border border-slate-200 rounded-xl hover:border-blue-400 transition group bg-white">
                     <h4 class="font-bold text-lg text-slate-900 group-hover:text-blue-600 transition">Handwriting Generator Bot</h4>
-                    <p class="text-sm text-slate-600 mt-2">Automation script that converts text to natural handwriting with customizable paper, fonts, and color.</p>
+                    <p class="text-sm text-slate-600 mt-2">Automation script converting text to natural handwriting with customizable paper and fonts.</p>
                 </div>
-
                 <div class="p-6 border border-slate-200 rounded-xl hover:border-blue-400 transition group bg-white">
                     <h4 class="font-bold text-lg text-slate-900 group-hover:text-blue-600 transition">FPS Bottle Shooter (Unity)</h4>
-                    <p class="text-sm text-slate-600 mt-2">3D game prototype featuring core shooting mechanics, raycasting, and destructible physics environments.</p>
+                    <p class="text-sm text-slate-600 mt-2">3D game prototype featuring raycasting and destructible physics environments.</p>
                 </div>
-
                 <div class="p-6 border border-slate-200 rounded-xl hover:border-blue-400 transition group bg-white">
                     <h4 class="font-bold text-lg text-slate-900 group-hover:text-blue-600 transition">Retail Sales Dashboard</h4>
-                    <p class="text-sm text-slate-600 mt-2">Interactive data visualization dashboard built in Power BI to analyze business metrics and trends.</p>
+                    <p class="text-sm text-slate-600 mt-2">Interactive data visualization dashboard built in Power BI to analyze business metrics.</p>
                 </div>
-
             </div>
         </div>
     </section>
@@ -244,20 +238,21 @@
         </div>
     </footer>
 
+    <!-- Modal EduSign — FIXED: structure now matches modal-rag -->
     <div id="modal-edusign" class="hidden fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-[10000] flex items-center justify-center p-4 transition-all duration-300 opacity-0">
         <div class="bg-white rounded-2xl max-w-3xl w-full p-8 md:p-10 relative transform scale-95 transition-transform duration-300 max-h-[90vh] overflow-y-auto">
             <button onclick="closeModal('modal-edusign')" class="absolute top-5 right-5 w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 text-slate-500 hover:bg-slate-200 hover:text-slate-900 transition">&times;</button>
-            <div class="mb-6 inline-block px-3 py-1 bg-blue-100 text-blue-700 rounded-lg text-sm font-bold tracking-wide uppercase">The X-Factor</div>
-            <h3 class="text-3xl font-bold text-slate-900 mb-6">EduSign: AI Video Stitching & Auto-Quiz Pipeline</h3>
+            <div class="mb-6 inline-block px-3 py-1 bg-blue-100 text-blue-700 rounded-lg text-sm font-bold tracking-wide uppercase">Engineering Details</div>
+            <h3 class="text-3xl font-bold text-slate-900 mb-6">EduSign Architecture</h3>
             <div class="prose prose-slate max-w-none text-slate-600 space-y-4">
-                <p>The most complex engineering challenge in this project was building the automated video processing and learning module pipelines.</p>
-                <p><strong>1. Dynamic Video Interpreter:</strong> The app accepts a YouTube link and utilizes <strong>Whisper AI</strong> to generate a highly accurate <code>.srt</code> transcript. I built a backend mechanism that processes this transcript word-by-word (including affixes) to query a dataset of SIBI (Indonesian Sign Language) video clips. These clips are then dynamically stitched and overlaid on the bottom right of the YouTube video, mimicking a live news broadcast interpreter.</p>
-                <p><strong>2. Automated Assessment via Groq API:</strong> To eliminate manual work for teachers, I integrated Google Cloud Console with Firebase. Once the <code>.srt</code> is stored, a Cloud Function triggers the Groq API to analyze the transcript context and automatically generate multiple-choice questions (A-E) along with the correct answers, saving them directly to the database in real-time.</p>
+                <p><strong>Note:</strong> Visual representation is documented via Figma as the live application environment is restricted by strict security protocols.</p>
+                <p>The core challenge was building the automated sign language video synthesis and learning module pipelines:</p>
+                <p><strong>1. Dynamic Video Interpreter:</strong> Utilizes <strong>Whisper AI</strong> to generate accurate transcripts. I built a backend to process transcript word-by-word and query a dataset of SIBI (Indonesian Sign Language) clips for dynamic stitching.</p>
+                <p><strong>2. Automated Assessment:</strong> Integrated Google Cloud with Firebase, triggering <strong>Groq API</strong> to automatically generate multiple-choice questions from video context.</p>
             </div>
             <div class="mt-8 flex flex-wrap gap-2 border-t pt-6 border-slate-100">
                 <span class="text-xs font-semibold px-2 py-1 bg-slate-100 text-slate-500 rounded">Whisper AI</span>
                 <span class="text-xs font-semibold px-2 py-1 bg-slate-100 text-slate-500 rounded">Groq API</span>
-                <span class="text-xs font-semibold px-2 py-1 bg-slate-100 text-slate-500 rounded">GCP Cloud Functions</span>
                 <span class="text-xs font-semibold px-2 py-1 bg-slate-100 text-slate-500 rounded">Firebase</span>
             </div>
         </div>
@@ -266,278 +261,141 @@
     <div id="modal-rag" class="hidden fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-[10000] flex items-center justify-center p-4 transition-all duration-300 opacity-0">
         <div class="bg-white rounded-2xl max-w-3xl w-full p-8 md:p-10 relative transform scale-95 transition-transform duration-300 max-h-[90vh] overflow-y-auto">
             <button onclick="closeModal('modal-rag')" class="absolute top-5 right-5 w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 text-slate-500 hover:bg-slate-200 hover:text-slate-900 transition">&times;</button>
-            <div class="mb-6 inline-block px-3 py-1 bg-emerald-100 text-emerald-700 rounded-lg text-sm font-bold tracking-wide uppercase">The X-Factor</div>
+            <div class="mb-6 inline-block px-3 py-1 bg-emerald-100 text-emerald-700 rounded-lg text-sm font-bold tracking-wide uppercase">Engineering Details</div>
             <h3 class="text-3xl font-bold text-slate-900 mb-6">Strict RAG Architecture against Hallucinations</h3>
             <div class="prose prose-slate max-w-none text-slate-600 space-y-4">
                 <p>While connecting the RAG pipeline to MongoDB Atlas was straightforward, the real challenge was deploying the model locally and ensuring <strong>zero hallucinations</strong> for academic use cases.</p>
-                <p>I utilized MongoDB Atlas's built-in Vector Search (using <strong>Cosine Similarity</strong>) to retrieve the top 6 most relevant document chunks from our localized database. The core engineering effort went into designing a highly restrictive prompting architecture for <strong>Llama 3.1</strong>.</p>
-                <p>The LLM was instructed via a strict scenario to <em>only</em> generate responses based on those 6 retrieved chunks. It was explicitly programmed to reject off-topic questions. Furthermore, if a query was on-topic but the exact answer wasn't present in the retrieved chunks, the system gracefully redirected the user to a human helpdesk, ensuring 100% information accuracy for university students.</p>
+                <p>I utilized MongoDB Atlas's Vector Search (using <strong>Cosine Similarity</strong>) to retrieve the top relevant document chunks. The core effort went into designing highly restrictive prompting for <strong>Llama 3.1</strong> to only generate responses based on retrieved chunks.</p>
             </div>
             <div class="mt-8 flex flex-wrap gap-2 border-t pt-6 border-slate-100">
                 <span class="text-xs font-semibold px-2 py-1 bg-slate-100 text-slate-500 rounded">RAG</span>
                 <span class="text-xs font-semibold px-2 py-1 bg-slate-100 text-slate-500 rounded">Llama 3.1</span>
-                <span class="text-xs font-semibold px-2 py-1 bg-slate-100 text-slate-500 rounded">Vector Search</span>
-                <span class="text-xs font-semibold px-2 py-1 bg-slate-100 text-slate-500 rounded">Prompt Engineering</span>
+                <span class="text-xs font-semibold px-2 py-1 bg-slate-100 text-slate-500 rounded">MongoDB Atlas</span>
             </div>
         </div>
     </div>
 
     <div id="modal-pm" class="hidden fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-[10000] flex items-center justify-center p-4 transition-all duration-300 opacity-0">
-        <div class="bg-white rounded-2xl max-w-3xl w-full p-8 md:p-10 relative transform scale-95 transition-transform duration-300 max-h-[90vh] overflow-y-auto">
+        <div class="bg-white rounded-2xl max-w-4xl w-full p-8 md:p-10 relative transform scale-95 transition-transform duration-300 max-h-[90vh] overflow-y-auto">
             <button onclick="closeModal('modal-pm')" class="absolute top-5 right-5 w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 text-slate-500 hover:bg-slate-200 hover:text-slate-900 transition">&times;</button>
-            <div class="mb-6 inline-block px-3 py-1 bg-purple-100 text-purple-700 rounded-lg text-sm font-bold tracking-wide uppercase">The X-Factor</div>
+            <div class="mb-6 inline-block px-3 py-1 bg-purple-100 text-purple-700 rounded-lg text-sm font-bold tracking-wide uppercase">Engineering Details</div>
             <h3 class="text-3xl font-bold text-slate-900 mb-6">Managing SDLC & Whitebox Testing Implementation</h3>
-            <div class="prose prose-slate max-w-none text-slate-600 space-y-4">
-                <p>Leading the Software Engineering Project (PPL) for a location-based surplus food delivery app (similar to GoFood, utilizing Google Maps API) required balancing team dynamics with rigorous technical standards.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                <div class="group">
+                    <img src="images/map.jpeg" alt="Location Map" class="rounded-xl border border-slate-200 shadow-sm w-full h-48 object-cover">
+                    <span class="text-[10px] text-slate-400 mt-1 block text-center italic">Google Maps Integration</span>
+                </div>
+                <div class="group">
+                    <img src="images/menu.jpeg" alt="Menu List" class="rounded-xl border border-slate-200 shadow-sm w-full h-48 object-cover">
+                    <span class="text-[10px] text-slate-400 mt-1 block text-center italic">Surplus Food Menus</span>
+                </div>
+                <div class="group">
+                    <img src="images/order.jpeg" alt="Order Flow" class="rounded-xl border border-slate-200 shadow-sm w-full h-48 object-cover">
+                    <span class="text-[10px] text-slate-400 mt-1 block text-center italic">Order Management</span>
+                </div>
+            </div>
+
+            <div class="prose prose-slate max-w-none text-slate-600 space-y-4 border-t pt-6">
+                <p>Leading the Software Engineering Project (PPL) for a location-based surplus food delivery app (utilizing Google Maps API) required balancing team dynamics with rigorous technical standards.</p>
                 <p>Beyond standard Project Manager duties—such as tracking weekly agile sprint targets via Trello and acting as the crucial communication bridge between the Frontend and Backend teams—the biggest technical challenge I tackled was <strong>Quality Assurance</strong>.</p>
                 <p>I initiated and oversaw the implementation of rigorous internal <strong>Whitebox Testing using Jest</strong>. This ensured that despite the rapid development cycle and integrating complex location-based APIs, the core backend logic and application state remained stable and resilient against regressions.</p>
             </div>
             <div class="mt-8 flex flex-wrap gap-2 border-t pt-6 border-slate-100">
                 <span class="text-xs font-semibold px-2 py-1 bg-slate-100 text-slate-500 rounded">Project Management</span>
                 <span class="text-xs font-semibold px-2 py-1 bg-slate-100 text-slate-500 rounded">Jest Testing</span>
-                <span class="text-xs font-semibold px-2 py-1 bg-slate-100 text-slate-500 rounded">Google Maps API</span>
                 <span class="text-xs font-semibold px-2 py-1 bg-slate-100 text-slate-500 rounded">Agile SDLC</span>
             </div>
         </div>
     </div>
 
-    <button id="ai-chat-button" onclick="toggleAIChat()" class="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 bg-blue-600 text-white rounded-full w-14 h-14 shadow-2xl flex items-center justify-center hover:bg-blue-700 transition duration-300 z-[9999] group">
-        <svg class="w-6 h-6 transition-transform group-hover:scale-110" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 2.137.669 4.12 1.812 5.75L2.125 21.875 6.25 20.188C7.88 21.331 9.863 22 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18c-1.808 0-3.513-.572-4.915-1.543l-.364-.25-2.27.927.927-2.27-.25-.364C4.572 15.513 4 13.808 4 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8zm-3.5-7.5h7a.5.5 0 010 1h-7a.5.5 0 010-1zm0-2h7a.5.5 0 010 1h-7a.5.5 0 010-1zm0-2h7a.5.5 0 010 1h-7a.5.5 0 010-1z"/></svg>
-        <span class="absolute -top-1 -right-1 flex h-4 w-4">
-            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-            <span class="relative inline-flex rounded-full h-4 w-4 bg-red-500 text-[10px] items-center justify-center font-bold">1</span>
-        </span>
+    <button onclick="toggleAIChat()" class="fixed bottom-4 right-4 bg-blue-600 text-white rounded-full w-14 h-14 shadow-2xl flex items-center justify-center z-[9999] hover:bg-blue-700 transition">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 2.137.669 4.12 1.812 5.75L2.125 21.875 6.25 20.188C7.88 21.331 9.863 22 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18c-1.808 0-3.513-.572-4.915-1.543l-.364-.25-2.27.927.927-2.27-.25-.364C4.572 15.513 4 13.808 4 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8zm-3.5-7.5h7a.5.5 0 010 1h-7a.5.5 0 010-1zm0-2h7a.5.5 0 010 1h-7a.5.5 0 010-1zm0-2h7a.5.5 0 010 1h-7a.5.5 0 010-1z"/></svg>
     </button>
 
-    <div id="ai-chat-window" class="hidden fixed bottom-20 right-4 sm:bottom-24 sm:right-6 w-[calc(100vw-2rem)] sm:w-[380px] max-w-[380px] h-[500px] max-h-[80vh] rounded-2xl shadow-2xl border border-slate-200 z-[9999] flex flex-col overflow-hidden transition-all duration-300 opacity-0 transform translate-y-4 bg-white">
-        <div class="bg-blue-600 p-4 text-white flex justify-between items-center border-b border-blue-700">
+    <div id="ai-chat-window" class="hidden fixed bottom-20 right-4 w-[calc(100vw-2rem)] sm:w-[380px] h-[500px] rounded-2xl shadow-2xl border border-slate-200 z-[9999] flex flex-col overflow-hidden bg-white transition-all duration-300 opacity-0 transform translate-y-4">
+        <div class="bg-blue-600 p-4 text-white flex justify-between items-center">
             <div class="flex items-center gap-3">
-                <img src="https://ui-avatars.com/api/?name=R+A&background=fff&color=2563eb&size=40" alt="Rob AI" class="w-10 h-10 rounded-full border-2 border-white/50">
-                <div>
-                    <h4 class="font-bold text-sm">Robert's AI Assistant</h4>
-                    <span class="text-xs text-blue-100 flex items-center gap-1"><div class="w-2 h-2 bg-green-300 rounded-full animate-pulse"></div> Active</span>
-                </div>
+                <img src="images/rob_ai.png" class="w-10 h-10 rounded-full border-2 border-white/50 object-cover">
+                <h4 class="font-bold text-sm">Robert's AI Assistant</h4>
             </div>
-            <button onclick="toggleAIChat()" class="text-white/70 hover:text-white transition text-2xl px-2">&times;</button>
+            <button onclick="toggleAIChat()" class="text-2xl">&times;</button>
         </div>
-
         <div id="ai-chat-messages" class="flex-grow p-4 space-y-4 overflow-y-auto bg-slate-50">
             <div class="flex items-start gap-3">
-                <img src="https://ui-avatars.com/api/?name=R+A&background=fff&color=2563eb&size=30" alt="Rob AI" class="w-8 h-8 rounded-full border border-slate-200 mt-1 flex-shrink-0">
-                <div class="bg-white p-3 rounded-xl rounded-bl-none shadow-sm border border-slate-100 max-w-[85%]">
-                    <p class="text-sm text-slate-700 leading-relaxed">
-                        Hi there! 👋 I'm Robert's AI. I can tell you about his skills, projects, or education. Ask me anything!
-                    </p>
-                    <span class="text-[10px] text-slate-400 mt-2 block">Rob AI • Just now</span>
+                <img src="images/rob_ai.png" class="w-8 h-8 rounded-full border flex-shrink-0 object-cover">
+                <div class="bg-white p-3 rounded-xl rounded-bl-none shadow-sm text-sm text-slate-700 leading-relaxed">
+                    Hi there! 👋 I'm Robert's AI. I can tell you about his skills, projects, or his latest work at PIPP. Ask me anything!
                 </div>
             </div>
             <div id="ai-typing-indicator" class="hidden flex items-start gap-3">
-                <img src="https://ui-avatars.com/api/?name=R+A&background=fff&color=2563eb&size=30" alt="Rob AI" class="w-8 h-8 rounded-full border border-slate-200 mt-1 flex-shrink-0">
-                <div class="bg-white px-4 py-3 rounded-xl rounded-bl-none shadow-sm border border-slate-100 flex gap-1">
-                    <div class="dot w-2 h-2 rounded-full"></div>
-                    <div class="dot w-2 h-2 rounded-full"></div>
-                    <div class="dot w-2 h-2 rounded-full"></div>
-                </div>
+                <img src="images/rob_ai.png" class="w-8 h-8 rounded-full border flex-shrink-0 object-cover">
+                <div class="bg-white px-4 py-3 rounded-xl flex gap-1"><div class="dot w-2 h-2 rounded-full"></div><div class="dot w-2 h-2 rounded-full"></div><div class="dot w-2 h-2 rounded-full"></div></div>
             </div>
         </div>
-
-        <div class="p-3 bg-white border-t border-slate-100 flex gap-2">
-            <input type="text" id="ai-chat-input" placeholder="Type your question..." class="flex-grow px-4 py-2 border border-slate-200 rounded-full text-sm focus:outline-none focus:border-blue-300 focus:ring-1 focus:ring-blue-200 transition" onkeypress="handleAIChatKey(event)">
-            <button id="ai-send-btn" onclick="sendUserAIMessage()" class="bg-blue-600 text-white rounded-full w-10 h-10 flex-shrink-0 flex items-center justify-center hover:bg-blue-700 transition duration-300 shadow">
-                <svg class="w-5 h-5 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
-            </button>
+        <div class="p-3 bg-white border-t flex flex-col gap-2">
+            <div class="flex flex-wrap gap-2"><button onclick="fillAndSend('Tell me about PIPP internship')" class="text-[10px] bg-slate-100 hover:bg-blue-50 p-1.5 px-3 rounded-full text-slate-600 transition">PIPP Internship?</button></div>
+            <div class="flex gap-2">
+                <input type="text" id="ai-chat-input" placeholder="Ask Robert anything..." class="flex-grow px-4 py-2 border rounded-full text-sm outline-none focus:border-blue-400 transition" onkeypress="handleAIChatKey(event)">
+                <button onclick="sendUserAIMessage()" class="bg-blue-600 text-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-blue-700 transition">➤</button>
+            </div>
         </div>
     </div>
 
-
     <script>
-        // Intersection Observer for Scroll Animations
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
         }, { threshold: 0.1 });
-
         document.querySelectorAll('.fade-in-up').forEach((el) => observer.observe(el));
 
-        // Modal Functions
         function openModal(id) {
-            const modal = document.getElementById(id);
-            modal.classList.remove('hidden');
-            setTimeout(() => {
-                modal.classList.remove('opacity-0');
-                modal.children[0].classList.remove('scale-95');
-                modal.children[0].classList.add('scale-100');
-            }, 10);
-            document.body.style.overflow = 'hidden'; 
+            const m = document.getElementById(id); m.classList.remove('hidden');
+            setTimeout(() => { m.classList.remove('opacity-0'); m.children[0].classList.remove('scale-95'); m.children[0].classList.add('scale-100'); }, 10);
+            document.body.style.overflow = 'hidden';
         }
-
         function closeModal(id) {
-            const modal = document.getElementById(id);
-            modal.classList.add('opacity-0');
-            modal.children[0].classList.remove('scale-100');
-            modal.children[0].classList.add('scale-95');
-            setTimeout(() => {
-                modal.classList.add('hidden');
-            }, 300);
-            document.body.style.overflow = 'auto'; 
+            const m = document.getElementById(id); m.classList.add('opacity-0'); m.children[0].classList.remove('scale-100'); m.children[0].classList.add('scale-95');
+            setTimeout(() => m.classList.add('hidden'), 300); document.body.style.overflow = 'auto';
         }
 
-        window.onclick = function(event) {
-            if (event.target.classList.contains('fixed') && event.target.id.startsWith('modal-')) {
-                closeModal(event.target.id);
-            }
-        }
-
-
-        // AI Chat Logic
         const chatWindow = document.getElementById('ai-chat-window');
         const chatMessages = document.getElementById('ai-chat-messages');
         const chatInput = document.getElementById('ai-chat-input');
         const typingIndicator = document.getElementById('ai-typing-indicator');
+        let isWaiting = false;
 
-        // Maintain conversation history for context
-        let chatHistory = [];
-        
-        // UPDATE: Variabel Gembok Anti-Spam
-        let isWaitingForResponse = false;
-
-        function toggleAIChat() {
-            if (chatWindow.classList.contains('hidden')) {
+        function toggleAIChat() { 
+            if(chatWindow.classList.contains('hidden')) {
                 chatWindow.classList.remove('hidden');
-                setTimeout(() => {
-                    chatWindow.classList.remove('opacity-0', 'translate-y-4');
-                    chatWindow.classList.add('opacity-100', 'translate-y-0');
-                }, 10);
-                document.getElementById('ai-chat-button').children[1].classList.add('hidden'); 
+                setTimeout(() => { chatWindow.classList.remove('opacity-0', 'translate-y-4'); chatWindow.classList.add('opacity-100', 'translate-y-0'); }, 10);
             } else {
                 chatWindow.classList.add('opacity-0', 'translate-y-4');
-                chatWindow.classList.remove('opacity-100', 'translate-y-0');
-                setTimeout(() => {
-                    chatWindow.classList.add('hidden');
-                }, 300);
+                setTimeout(() => chatWindow.classList.add('hidden'), 300);
             }
         }
+        function fillAndSend(t) { chatInput.value = t; sendUserAIMessage(); }
+        function handleAIChatKey(e) { if (e.key === 'Enter') sendUserAIMessage(); }
 
-        function handleAIChatKey(event) {
-            if (event.key === 'Enter') {
-                sendUserAIMessage();
-            }
-        }
-
-        // Fetch response from Vercel Serverless Function
-        async function fetchGeminiResponse(userMessage) {
-            chatHistory.push({ role: "user", content: userMessage });
-
+        async function fetchGeminiResponse(m) {
             try {
-                const response = await fetch('/api/chat', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ messages: chatHistory })
-                });
-
-                const data = await response.json();
-
-                if (response.ok && data.reply) {
-                    chatHistory.push({ role: "model", content: data.reply });
-                    return data.reply;
-                } else {
-                    console.error("Vercel API Error:", data);
-                    return "Sorry, my AI brain is currently experiencing issues. Please contact Robert directly via LinkedIn!";
-                }
-            } catch (error) {
-                console.error("Fetch Error:", error);
-                return "Sorry, connection to the AI server failed. Please try again later.";
-            }
+                const r = await fetch('/api/chat', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ messages: [{role:"user", content:m}] }) });
+                const d = await r.json(); return d.reply || "Sorry, I encountered an error. Please try again.";
+            } catch (e) { return "Fail to connect to server."; }
         }
 
-        // UPDATE: Fungsi dengan Anti-Spam dan Kunci UI
         async function sendUserAIMessage() {
-            // Kalau lagi nunggu jawaban/cooldown, abaikan klik
-            if (isWaitingForResponse) return;
-
-            const messageText = chatInput.value.trim();
-            if (messageText === "") return;
-
-            // Kunci input dan tombol biar gak dispam
-            isWaitingForResponse = true;
-            chatInput.disabled = true;
-            const sendBtn = document.getElementById('ai-send-btn');
-            if (sendBtn) sendBtn.style.opacity = '0.5';
-
-            // 1. Display User Message
-            appendMessage(messageText, 'user');
-            chatInput.value = ''; 
-            scrollToBottom();
-
-            // 2. Show typing animation
-            showTypingIndicator();
-            scrollToBottom();
-
-            // 3. Await real AI response from our backend
-            const botResponse = await fetchGeminiResponse(messageText);
-
-            // 4. Hide typing animation and show response
-            hideTypingIndicator();
-            appendMessage(botResponse, 'bot');
-            scrollToBottom();
-
-            // 5. Buka kunci setelah jeda 4 detik (Mencegah Limit 15/menit Google)
-            setTimeout(() => {
-                isWaitingForResponse = false;
-                chatInput.disabled = false;
-                if (sendBtn) sendBtn.style.opacity = '1';
-                chatInput.focus();
-            }, 4000);
+            if (isWaiting || !chatInput.value.trim()) return;
+            const t = chatInput.value.trim(); isWaiting = true; appendMessage(t, 'user');
+            chatInput.value = ''; typingIndicator.classList.remove('hidden');
+            const res = await fetchGeminiResponse(t); typingIndicator.classList.add('hidden');
+            appendMessage(res, 'bot'); isWaiting = false;
         }
 
-        function appendMessage(text, sender) {
-            const messageDiv = document.createElement('div');
-            messageDiv.classList.add('flex', 'items-start', 'gap-3');
-            if (sender === 'user') {
-                messageDiv.classList.add('justify-end');
-            }
-
-            const timeString = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-            const displayName = sender === 'bot' ? 'Rob AI' : 'You';
-            const avatarParams = sender === 'bot' ? 'api/?name=R+A&background=fff&color=2563eb' : 'api/?name=You&background=e2e8f0&color=64748b';
-
-            let messageBody = '';
-            if (sender === 'bot') {
-                messageBody = `
-                    <img src="https://ui-avatars.com/${avatarParams}&size=30" alt="${displayName}" class="w-8 h-8 rounded-full border border-slate-200 mt-1 flex-shrink-0">
-                    <div class="bg-white p-3 rounded-xl rounded-bl-none shadow-sm border border-slate-100 max-w-[85%]">
-                        <p class="text-sm text-slate-700 leading-relaxed">${text}</p>
-                        <span class="text-[10px] text-slate-400 mt-2 block">${displayName} • ${timeString}</span>
-                    </div>
-                `;
-            } else {
-                messageBody = `
-                    <div class="bg-blue-600 text-white p-3 rounded-xl rounded-br-none shadow-md max-w-[85%]">
-                        <p class="text-sm leading-relaxed">${text}</p>
-                        <span class="text-[10px] text-blue-100 mt-2 block">${displayName} • ${timeString}</span>
-                    </div>
-                `;
-            }
-
-            messageDiv.innerHTML = messageBody;
-            chatMessages.insertBefore(messageDiv, typingIndicator);
+        function appendMessage(t, s) {
+            const d = document.createElement('div'); d.className = `flex items-start gap-3 ${s==='user'?'justify-end':''}`;
+            d.innerHTML = s === 'bot' ? `<img src="images/rob_ai.png" class="w-8 h-8 rounded-full border object-cover mt-1"><div class="bg-white p-3 rounded-xl rounded-bl-none shadow-sm border border-slate-100 text-sm max-w-[85%]">${t}</div>` : `<div class="bg-blue-600 text-white p-3 rounded-xl rounded-br-none shadow-md text-sm max-w-[85%]">${t}</div>`;
+            chatMessages.insertBefore(d, typingIndicator); chatMessages.scrollTop = chatMessages.scrollHeight;
         }
-
-        function showTypingIndicator() {
-            typingIndicator.classList.remove('hidden');
-        }
-
-        function hideTypingIndicator() {
-            typingIndicator.classList.add('hidden');
-        }
-
-        function scrollToBottom() {
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        }
-
     </script>
 </body>
 </html>
