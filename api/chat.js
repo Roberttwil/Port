@@ -80,7 +80,7 @@ Be professional, friendly, and concise. NEVER make up information. If you don't 
 ### 1. AI Engineer Intern — PIPP Unpad (2025)
 - Full name: Pusat Inovasi Pengajaran dan Pembelajaran (PIPP), Universitas Padjadjaran
 - Role: AI Engineer Intern
-- Project: Developed a specialized RAG-based Chatbot for the MIM (Manajemen Inovasi dan Manajemen) academic program.
+- Project: Developed a specialized RAG-based Chatbot for the MIM (Magister Ilmu Manajemen).
 - Key contributions:
   * Architected a full end-to-end RAG pipeline using Ollama and Llama 3.1 for local LLM deployment.
   * Implemented MongoDB Atlas Vector Search for retrieving relevant academic document chunks.
