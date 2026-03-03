@@ -113,7 +113,7 @@ Be professional, friendly, and concise. NEVER make up information. If you don't 
 
 ### 2. Academic RAG Chatbot (PIPP Unpad)
 - Type: AI-powered academic information chatbot
-- Description: A hallucination-free AI assistant powered by Llama 3.1 and MongoDB Vector Search, built for the MIM academic program at Unpad.
+- Description: A prototype of hallucination-free AI assistant powered by Llama 3.1 and MongoDB Vector Search, built for the MIM (Magister Ilmu Manajemen) academic program at Unpad.
 - Core engineering challenge: While connecting the RAG pipeline to MongoDB Atlas was relatively straightforward, the real difficulty was deploying the model locally and guaranteeing zero hallucinations for sensitive academic use cases.
 - Technical approach:
   * Used MongoDB Atlas Vector Search with Cosine Similarity to retrieve the most relevant document chunks from academic data.
