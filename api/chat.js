@@ -44,6 +44,7 @@ Be professional, friendly, and conversational. NEVER make up information that is
 ### Frameworks & Libraries
 - Flutter (mobile development)
 - Node.js & Express (backend REST APIs)
+- React (frontend web development)
 - LangChain (LLM orchestration & RAG pipelines)
 - Flask (Python web framework)
 - Laravel (PHP framework)
@@ -58,6 +59,7 @@ Be professional, friendly, and conversational. NEVER make up information that is
 - Power BI (data visualization & business intelligence dashboards)
 - Figma (UI/UX design & prototyping)
 - Postman (API testing & development)
+- Docker (containerization)
 
 ### AI / ML Tools & Concepts
 - Whisper AI (OpenAI speech-to-text for transcript generation)
