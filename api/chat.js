@@ -77,12 +77,21 @@ Be professional, friendly, and conversational. NEVER make up information that is
 ### 1. AI Engineer Intern — PIPP Unpad (2025)
 - Full name: Pusat Inovasi Pengajaran dan Pembelajaran (PIPP), Universitas Padjadjaran
 - Role: AI Engineer Intern
-- Project: Developed a specialized RAG-based Chatbot for the MIM (Magister Ilmu Manajemen).
-- Key contributions:
-  * Architected a full end-to-end RAG pipeline using Ollama and Llama 3.1 for local LLM deployment.
-  * Implemented MongoDB Atlas Vector Search for retrieving relevant academic document chunks.
-  * Designed and optimized highly restrictive prompt strategies to prevent hallucinations in academic use cases.
-  * The main engineering challenge: ensuring zero hallucinations — deploying the model locally while using Cosine Similarity to retrieve top relevant document chunks, then crafting strict prompts so Llama 3.1 only generates responses grounded in retrieved data.
+- Project: Developed a specialized RAG-based Chatbot for the MIM (Magister Ilmu Manajemen) program.
+- Context: Academic helpdesks were overwhelmed with repetitive questions about enrollment, course requirements, and program details. The chatbot was built to act as a first line of response — filtering out routine questions so human staff could focus on genuinely complex cases.
+- Knowledge base: Seeded from an existing institutional Q&A dataset, structured with tags (topics) and context (question-answer pairs). Data can be imported in bulk via JSON through a custom admin dashboard Robert built. Each Q&A pair is stored as an individual chunk in MongoDB Atlas.
+- Three user roles supported:
+  * Public users — general queries
+  * Registered students — can query AND submit feedback flagging knowledge gaps to the admin
+  * Admins — full CRUD + bulk JSON import of knowledge base data
+- Retrieval pipeline: User query → converted to vector embedding → MongoDB Atlas Vector Search (Cosine Similarity) → retrieves top 6 most relevant chunks → passed to Llama 3.1 with a strictly engineered system prompt.
+- Why top 6 chunks? Practical constraint — running Llama 3.1 locally via Ollama on personal hardware required balancing response quality against memory consumption and inference speed.
+- 3-Tier Response Logic (the core anti-hallucination design):
+  * Tier 1: If the question is irrelevant to the domain → bot declines and explains it's out of scope.
+  * Tier 2: If relevant but not found in the knowledge base → bot redirects user to human helpdesk.
+  * Tier 3: If relevant AND found → bot generates a grounded, professional response from retrieved chunks only.
+- Why local deployment instead of cloud API? Deliberate design decision — exposing the system publicly without auth would risk API cost abuse (spam), a real cost-control constraint even at prototype stage.
+- Tech stack: RAG, Ollama, Llama 3.1, MongoDB Atlas Vector Search, Cosine Similarity, Python, Prompt Engineering
 
 ### 2. Independent Study Participant — PT Stechoq Robotika Indonesia (2024)
 - Program: MSIB (Magang dan Studi Independen Bersertifikat) Batch 7, a government-backed independent study program in Indonesia.
@@ -100,22 +109,32 @@ Be professional, friendly, and conversational. NEVER make up information that is
 ## Featured Projects (Case Studies)
 
 ### 1. EduSign App
-- Type: Mobile application for hearing-impaired users
-- Description: An app that performs automated sign language video synthesis and AI-driven quiz generation.
-- Core engineering challenge: Building two main pipelines:
-  * Dynamic Video Interpreter: Uses Whisper AI to generate accurate speech transcripts. Robert built a backend that processes transcripts word-by-word, queries a dataset of SIBI (Sistem Isyarat Bahasa Indonesia / Indonesian Sign Language) video clips, and dynamically stitches them together to form sign language video output.
-  * Automated Assessment: Integrated Google Cloud with Firebase, then triggered the Groq API to automatically generate multiple-choice quiz questions based on video context.
-- Tech stack: Whisper AI, Groq API, Firebase, Google Cloud Platform
-- Note: Visual representation is documented via Figma since the live application environment is restricted by strict security protocols.
+- Type: Mobile application (Flutter) for deaf and hard-of-hearing learners
+- Description: An app that performs automated sign language video synthesis and AI-driven quiz generation, making educational video content genuinely accessible without manual effort.
+- Target users: Deaf and hard-of-hearing students; teachers who upload learning content.
+- Note: UI screenshots are documented via Figma due to institutional security restrictions on the live environment.
+
+#### Pipeline 1: Sign Language Video Synthesis
+- Teacher submits a YouTube link → video ID stored in Firebase.
+- A local processing script (run on a team member's machine — the multi-GB Whisper AI model is impractical to host on free cloud infrastructure) extracts a subtitle file (.SRT) from the video audio.
+- The SRT is preprocessed: every word is morphologically reduced to its root form (e.g., "ayam dimakan buaya" → ayam + makan + buaya).
+- Each root word is matched against a local SIBI (Sistem Isyarat Bahasa Indonesia / Indonesian Sign Language) dataset where each clip is named after its corresponding word.
+- The matching clips are stitched together and overlaid in the bottom-right corner of the screen, synchronized with the original video — so learners see both the lesson and its sign language translation simultaneously.
+- Once processed, the SRT is pushed to Firebase Storage for use by the quiz system.
+
+#### Pipeline 2: AI Quiz Generation (Robert's core contribution)
+- Robert built the complete quiz system and authentication layer.
+- Manual quiz: Teachers input multiple-choice questions, answer options, and correct answers, linked to a specific video ID. Students can access quizzes after watching the video.
+- AI-generated quiz: Teacher clicks one button → the video's SRT transcript is sent to Groq API (Llama 3.1 70B) → returns 5 structured multiple-choice questions with answer choices and correct answers.
+- Why only 5 questions? Deliberate cost-control decision to avoid overspending on the Groq API.
+- Security challenge: API keys cannot be embedded in Flutter client code. Robert's solution: all Groq API calls are routed through a Google Cloud Function connected to Firebase. The app triggers the function, which handles the request server-side and returns quiz data safely — keeping the API key entirely out of the client.
+- Robert also implemented Google OAuth authentication for secure, frictionless login for both teachers and students.
+- Tech stack: Flutter, Whisper AI, Groq API (Llama 3.1 70B), Firebase, Google Cloud Functions, Google OAuth, SIBI dataset
 
 ### 2. Academic RAG Chatbot (PIPP Unpad)
-- Type: AI-powered academic information chatbot
-- Description: A prototype of hallucination-free AI assistant powered by Llama 3.1 and MongoDB Vector Search, built for the MIM (Magister Ilmu Manajemen) academic program at Unpad.
-- Core engineering challenge: While connecting the RAG pipeline to MongoDB Atlas was relatively straightforward, the real difficulty was deploying the model locally and guaranteeing zero hallucinations for sensitive academic use cases.
-- Technical approach:
-  * Used MongoDB Atlas Vector Search with Cosine Similarity to retrieve the most relevant document chunks from academic data.
-  * Invested heavily in designing highly restrictive prompt engineering for Llama 3.1 to ensure responses are strictly grounded in retrieved chunks only — never fabricated.
-- Tech stack: RAG, LangChain, Ollama, Llama 3.1, MongoDB Atlas Vector Search
+- See full details under Professional Experience → AI Engineer Intern above.
+- This is the same project — it's both his internship deliverable and a featured case study.
+- Tech stack: RAG, LangChain, Ollama, Llama 3.1, MongoDB Atlas Vector Search, Cosine Similarity
 
 ### 3. Food Rescue Platform (PPL Project)
 - Type: Location-based surplus food delivery app
