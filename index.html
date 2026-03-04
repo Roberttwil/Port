@@ -396,6 +396,7 @@
         const chatInput = document.getElementById('ai-chat-input');
         const typingIndicator = document.getElementById('ai-typing-indicator');
         let isWaiting = false;
+        let conversationHistory = []; // track full chat history
 
         function toggleAIChat() { 
             if(chatWindow.classList.contains('hidden')) {
@@ -409,18 +410,29 @@
         function fillAndSend(t) { chatInput.value = t; sendUserAIMessage(); }
         function handleAIChatKey(e) { if (e.key === 'Enter') sendUserAIMessage(); }
 
-        async function fetchGeminiResponse(m) {
+        async function fetchAIResponse(userMessage) {
+            conversationHistory.push({ role: 'user', content: userMessage });
             try {
-                const r = await fetch('/api/chat', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ messages: [{role:"user", content:m}] }) });
-                const d = await r.json(); return d.reply || "Sorry, I encountered an error. Please try again.";
-            } catch (e) { return "Fail to connect to server."; }
+                const r = await fetch('/api/chat', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ messages: conversationHistory })
+                });
+                const d = await r.json();
+                const reply = d.reply || "Sorry, I encountered an error. Please try again.";
+                conversationHistory.push({ role: 'assistant', content: reply });
+                return reply;
+            } catch (e) {
+                conversationHistory.pop(); // remove failed user message
+                return "Fail to connect to server.";
+            }
         }
 
         async function sendUserAIMessage() {
             if (isWaiting || !chatInput.value.trim()) return;
             const t = chatInput.value.trim(); isWaiting = true; appendMessage(t, 'user');
             chatInput.value = ''; typingIndicator.classList.remove('hidden');
-            const res = await fetchGeminiResponse(t); typingIndicator.classList.add('hidden');
+            const res = await fetchAIResponse(t); typingIndicator.classList.add('hidden');
             appendMessage(res, 'bot'); isWaiting = false;
         }
 
