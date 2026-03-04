@@ -30,7 +30,7 @@
     <header class="min-h-screen flex items-center px-6 md:px-16 bg-gradient-to-br from-slate-100 via-white to-blue-50">
         <div class="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center py-20">
             
-            <!-- LEFT: Profile Card -->
+
             <div class="fade-in-up flex flex-col items-center text-center">
                 <div class="relative w-44 h-44 md:w-56 md:h-56 mb-6">
                     <img src="images/profile.png" alt="Robert William" class="rounded-3xl object-cover shadow-2xl border-4 border-white w-full h-full">
@@ -58,10 +58,10 @@
                 </div>
             </div>
 
-            <!-- RIGHT: Introduction -->
+
             <div class="fade-in-up" style="transition-delay: 150ms;">
                 <p class="text-xs font-bold text-blue-500 uppercase tracking-widest mb-4">About Me</p>
-                <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-5 leading-snug">Hi, I'm Robert — I build intelligent systems that actually work.</h2>
+                <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-5 leading-snug">Hi, I'm Robert — I build intelligent systems that actually work. 👋</h2>
                 <div class="space-y-4 text-slate-600 leading-relaxed text-[15px]">
                     <p>I'm an Informatics Engineering student at <span class="font-semibold text-slate-800">Universitas Padjadjaran</span>, deeply passionate about the intersection of backend engineering and artificial intelligence. I don't just write code — I architect systems designed to scale and solve real problems.</p>
                     <p>Beyond my technical work, I believe that every great engineer is shaped by their unique perspectives and disciplines. Want to know more about my projects, my hobbies, or my other hidden skills? Feel free to ask my AI assistant on the bottom right!</p>
@@ -268,7 +268,7 @@
         </div>
     </footer>
 
-    <!-- Modal EduSign — FIXED: structure now matches modal-rag -->
+
     <div id="modal-edusign" class="hidden fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-[10000] flex items-center justify-center p-4 transition-all duration-300 opacity-0">
         <div class="bg-white rounded-2xl max-w-3xl w-full p-8 md:p-10 relative transform scale-95 transition-transform duration-300 max-h-[90vh] overflow-y-auto">
             <button onclick="closeModal('modal-edusign')" class="absolute top-5 right-5 w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 text-slate-500 hover:bg-slate-200 hover:text-slate-900 transition">&times;</button>
@@ -396,7 +396,7 @@
         const chatInput = document.getElementById('ai-chat-input');
         const typingIndicator = document.getElementById('ai-typing-indicator');
         let isWaiting = false;
-        let conversationHistory = []; // track full chat history
+        let conversationHistory = [];
 
         function toggleAIChat() { 
             if(chatWindow.classList.contains('hidden')) {
@@ -423,7 +423,7 @@
                 conversationHistory.push({ role: 'assistant', content: reply });
                 return reply;
             } catch (e) {
-                conversationHistory.pop(); // remove failed user message
+                conversationHistory.pop();
                 return "Fail to connect to server.";
             }
         }
@@ -437,11 +437,8 @@
         }
 
         function parseMarkdown(text) {
-            // Bold
             let html = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-            // Clickable links
             html = html.replace(/(https?:\/\/[^\s\)\"<]+)/g, '<a href="$1" target="_blank" class="text-blue-600 underline break-all hover:text-blue-800">$1</a>');
-            // Split into lines, group numbered & bullet lists
             const lines = html.split('\n');
             const result = [];
             let inOl = false, inUl = false;
