@@ -23,11 +23,42 @@
             28% { transform: translateY(-5px); background-color: #94a3b8; }
             44% { transform: translateY(0px); background-color: #cbd5e1; }
         }
+        .nav-link { position: relative; }
+        .nav-link::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background: #2563eb; transition: width 0.3s ease; }
+        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+        .nav-link.active { color: #2563eb; }
+        #navbar { transition: background 0.3s ease, box-shadow 0.3s ease; }
+        #navbar.scrolled { background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); box-shadow: 0 1px 20px rgba(0,0,0,0.08); }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 overflow-x-hidden relative">
 
-    <header class="min-h-screen flex items-center px-6 md:px-16 bg-gradient-to-br from-slate-100 via-white to-blue-50">
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-[9998] bg-transparent">
+        <div class="max-w-6xl mx-auto px-6 md:px-16 h-16 flex items-center justify-between">
+            <span class="font-bold text-slate-900 text-sm tracking-tight">RW<span class="text-blue-600">.</span></span>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#top" class="nav-link text-sm font-medium text-slate-600 hover:text-slate-900 transition">Home</a>
+                <a href="#skills" class="nav-link text-sm font-medium text-slate-600 hover:text-slate-900 transition">Skills</a>
+                <a href="#experience" class="nav-link text-sm font-medium text-slate-600 hover:text-slate-900 transition">Experience</a>
+                <a href="#projects" class="nav-link text-sm font-medium text-slate-600 hover:text-slate-900 transition">Projects</a>
+                <a href="#archives" class="nav-link text-sm font-medium text-slate-600 hover:text-slate-900 transition">Archives</a>
+                <a href="https://www.linkedin.com/in/robertwilliamh/" target="_blank" class="px-4 py-1.5 bg-blue-600 text-white text-sm font-semibold rounded-full hover:bg-blue-700 transition">Contact</a>
+            </div>
+            <button id="mobile-menu-btn" class="md:hidden text-slate-700 p-2" onclick="toggleMobileMenu()">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 px-6 py-4 flex flex-col gap-4">
+            <a href="#top" class="text-sm font-medium text-slate-700 hover:text-blue-600 transition" onclick="toggleMobileMenu()">Home</a>
+            <a href="#skills" class="text-sm font-medium text-slate-700 hover:text-blue-600 transition" onclick="toggleMobileMenu()">Skills</a>
+            <a href="#experience" class="text-sm font-medium text-slate-700 hover:text-blue-600 transition" onclick="toggleMobileMenu()">Experience</a>
+            <a href="#projects" class="text-sm font-medium text-slate-700 hover:text-blue-600 transition" onclick="toggleMobileMenu()">Projects</a>
+            <a href="#archives" class="text-sm font-medium text-slate-700 hover:text-blue-600 transition" onclick="toggleMobileMenu()">Archives</a>
+            <a href="https://www.linkedin.com/in/robertwilliamh/" target="_blank" class="text-sm font-medium text-blue-600 font-semibold">Contact (LinkedIn)</a>
+        </div>
+    </nav>
+
+    <header id="top" class="min-h-screen flex items-center px-6 md:px-16 bg-gradient-to-br from-slate-100 via-white to-blue-50">
         <div class="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center py-20">
             
 
@@ -61,7 +92,7 @@
 
             <div class="fade-in-up" style="transition-delay: 150ms;">
                 <p class="text-xs font-bold text-blue-500 uppercase tracking-widest mb-4">About Me</p>
-                <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-5 leading-snug">Hi, I'm Robert — I build intelligent systems that actually work. 👋</h2>
+                <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-5 leading-snug">Hi, I'm Robert — I build intelligent systems that actually work.</h2>
                 <div class="space-y-4 text-slate-600 leading-relaxed text-[15px]">
                     <p>I'm an Informatics Engineering student at <span class="font-semibold text-slate-800">Universitas Padjadjaran</span>, deeply passionate about the intersection of backend engineering and artificial intelligence. I don't just write code — I architect systems designed to scale and solve real problems.</p>
                     <p>Beyond my technical work, I believe that every great engineer is shaped by their unique perspectives and disciplines. Want to know more about my projects, my hobbies, or my other hidden skills? Feel free to ask my AI assistant on the bottom right!</p>
@@ -79,7 +110,7 @@
         </div>
     </header>
 
-    <section class="py-16 bg-white border-y border-slate-100">
+    <section id="skills" class="py-16 bg-white border-y border-slate-100">
         <div class="max-w-5xl mx-auto px-4 fade-in-up">
             <h2 class="text-sm font-bold text-slate-400 uppercase tracking-widest text-center mb-8">Technical Arsenal</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
@@ -228,7 +259,7 @@
         </div>
     </section>
 
-    <section class="py-24 bg-white px-4 border-t border-slate-100">
+    <section id="archives" class="py-24 bg-white px-4 border-t border-slate-100">
         <div class="max-w-5xl mx-auto fade-in-up">
             <h2 class="text-3xl font-bold mb-10 text-slate-900">Other Explorations & Archives</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -376,6 +407,25 @@
     </div>
 
     <script>
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 20);
+            const sections = ['top','skills','experience','projects','archives'];
+            const navLinks = document.querySelectorAll('.nav-link');
+            let current = 'top';
+            sections.forEach(id => {
+                const el = document.getElementById(id);
+                if (el && window.scrollY >= el.offsetTop - 80) current = id;
+            });
+            navLinks.forEach(link => {
+                link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+            });
+        });
+
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
         }, { threshold: 0.1 });
