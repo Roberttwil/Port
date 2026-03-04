@@ -57,6 +57,7 @@ Be professional, friendly, and conversational. NEVER make up information that is
 - Unity (game development)
 - Power BI (data visualization & business intelligence dashboards)
 - Figma (UI/UX design & prototyping)
+- Postman (API testing & development)
 
 ### AI / ML Tools & Concepts
 - Whisper AI (OpenAI speech-to-text for transcript generation)
