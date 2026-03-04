@@ -364,7 +364,10 @@
             </div>
         </div>
         <div class="p-3 bg-white border-t flex flex-col gap-2">
-            <div class="flex flex-wrap gap-2"><button onclick="fillAndSend('Tell me about PIPP internship')" class="text-[10px] bg-slate-100 hover:bg-blue-50 p-1.5 px-3 rounded-full text-slate-600 transition">PIPP Internship?</button></div>
+            <div class="flex flex-wrap gap-2">
+                <button onclick="fillAndSend('Tell me about PIPP internship')" class="text-[10px] bg-slate-100 hover:bg-blue-50 p-1.5 px-3 rounded-full text-slate-600 transition">PIPP Internship?</button>
+                <button onclick="fillAndSend('What are his hobbies?')" class="text-[10px] bg-slate-100 hover:bg-blue-50 p-1.5 px-3 rounded-full text-slate-600 transition">Hobbies?</button>
+            </div>
             <div class="flex gap-2">
                 <input type="text" id="ai-chat-input" placeholder="Ask Robert anything..." class="flex-grow px-4 py-2 border rounded-full text-sm outline-none focus:border-blue-400 transition" onkeypress="handleAIChatKey(event)">
                 <button onclick="sendUserAIMessage()" class="bg-blue-600 text-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-blue-700 transition">➤</button>
