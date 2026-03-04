@@ -42,7 +42,8 @@
                 <a href="#experience" class="nav-link text-sm font-medium text-slate-600 hover:text-slate-900 transition">Experience</a>
                 <a href="#projects" class="nav-link text-sm font-medium text-slate-600 hover:text-slate-900 transition">Projects</a>
                 <a href="#archives" class="nav-link text-sm font-medium text-slate-600 hover:text-slate-900 transition">Archives</a>
-                <a href="https://www.linkedin.com/in/robertwilliamh/" target="_blank" class="px-4 py-1.5 bg-blue-600 text-white text-sm font-semibold rounded-full hover:bg-blue-700 transition">Contact</a>
+                <a href="#contact" class="nav-link text-sm font-medium text-slate-600 hover:text-slate-900 transition">Contact</a>
+                <a href="#contact" class="px-4 py-1.5 bg-blue-600 text-white text-sm font-semibold rounded-full hover:bg-blue-700 transition">Hire Me</a>
             </div>
             <button id="mobile-menu-btn" class="md:hidden text-slate-700 p-2" onclick="toggleMobileMenu()">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
@@ -54,7 +55,7 @@
             <a href="#experience" class="text-sm font-medium text-slate-700 hover:text-blue-600 transition" onclick="toggleMobileMenu()">Experience</a>
             <a href="#projects" class="text-sm font-medium text-slate-700 hover:text-blue-600 transition" onclick="toggleMobileMenu()">Projects</a>
             <a href="#archives" class="text-sm font-medium text-slate-700 hover:text-blue-600 transition" onclick="toggleMobileMenu()">Archives</a>
-            <a href="https://www.linkedin.com/in/robertwilliamh/" target="_blank" class="text-sm font-medium text-blue-600 font-semibold">Contact (LinkedIn)</a>
+            <a href="#contact" class="text-sm font-medium text-blue-600 font-semibold" onclick="toggleMobileMenu()">Contact</a>
         </div>
     </nav>
 
@@ -281,6 +282,62 @@
         </div>
     </section>
 
+    <section id="contact" class="py-24 bg-slate-50 px-4 border-t border-slate-100">
+        <div class="max-w-2xl mx-auto fade-in-up">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-slate-900">Get In Touch</h2>
+            <p class="text-center text-slate-500 mb-12">Have a project in mind or want to discuss opportunities? Feel free to reach out.</p>
+
+            <div id="contact-form-wrapper">
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-8 md:p-10">
+                    <div class="space-y-5">
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">Name</label>
+                            <input id="contact-name" type="text" placeholder="Your name" class="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-50 transition">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">Email</label>
+                            <input id="contact-email" type="email" placeholder="your@email.com" class="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-50 transition">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">Message</label>
+                            <textarea id="contact-message" rows="5" placeholder="Tell me about your project or opportunity..." class="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-50 transition resize-none"></textarea>
+                        </div>
+                        <button onclick="submitContactForm()" id="contact-submit-btn" class="w-full py-3 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition duration-300 flex items-center justify-center gap-2">
+                            <span id="contact-btn-text">Send Message</span>
+                            <svg id="contact-btn-icon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Success State -->
+            <div id="contact-success" class="hidden bg-white rounded-2xl shadow-sm border border-emerald-100 p-10 text-center">
+                <div class="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 mb-2">Message Sent!</h3>
+                <p class="text-slate-500 text-sm">Thanks for reaching out. I'll get back to you as soon as possible.</p>
+            </div>
+
+            <div class="mt-8 flex justify-center items-center gap-6 text-sm text-slate-500">
+                <a href="https://www.linkedin.com/in/robertwilliamh/" target="_blank" class="flex items-center gap-2 hover:text-blue-600 transition">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    LinkedIn
+                </a>
+                <span class="text-slate-300">|</span>
+                <a href="https://github.com/Roberttwil" target="_blank" class="flex items-center gap-2 hover:text-slate-900 transition">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    GitHub
+                </a>
+                <span class="text-slate-300">|</span>
+                <a href="/cdn-cgi/l/email-protection#a2d0cdc0c7d0d6d6d5cbcececae2c5cfc3cbce8cc1cdcf" class="flex items-center gap-2 hover:text-blue-600 transition">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    <span class="__cf_email__" data-cfemail="c2b0ada0a7b0b6b6b5abaeaeaa82a5afa3abaeeca1adaf">[email&#160;protected]</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <footer class="bg-slate-900 text-slate-400 text-center py-10 pb-28 md:pb-10">
         <p class="mb-2">&copy; 2026 Robert William. All rights reserved.</p>
         <div class="flex justify-center gap-4 mt-4">
@@ -301,7 +358,7 @@
                 <div class="bg-blue-50 border border-blue-100 rounded-xl p-5">
                     <h4 class="font-bold text-slate-800 mb-3">1. Sign Language Video Synthesis Pipeline</h4>
                     <p>When a teacher submits a YouTube link, the video ID is stored in Firebase. A local processing script — running on a team member's machine due to the multi-GB Whisper AI model being impractical to host on free cloud infrastructure — extracts a subtitle file (.SRT) from the video's audio.</p>
-                    <p class="mt-3">The real complexity lies in preprocessing: every word in the transcript is morphologically reduced to its root form, then matched word-by-word against a local SIBI dataset where each clip is named after its corresponding word. These clips are stitched together and overlaid in the bottom-right corner of the screen in sync with the original video, so learners see both the lesson and its sign language translation simultaneously. Once processed, the SRT is pushed to Firebase Storage for downstream use by the quiz system.</p>
+                    <p class="mt-3">The real complexity lies in preprocessing: every word in the transcript is morphologically reduced to its root form (e.g., <em>"ayam dimakan buaya"</em> becomes <em>ayam + makan + buaya</em>), then matched word-by-word against a local SIBI dataset where each clip is named after its corresponding word. These clips are stitched together and overlaid in the bottom-right corner of the screen in sync with the original video, so learners see both the lesson and its sign language translation simultaneously. Once processed, the SRT is pushed to Firebase Storage for downstream use by the quiz system.</p>
                 </div>
                 <div class="bg-indigo-50 border border-indigo-100 rounded-xl p-5">
                     <h4 class="font-bold text-slate-800 mb-3">2. AI-Powered Quiz Generation (My Core Contribution)</h4>
@@ -438,11 +495,11 @@
         </div>
     </div>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             navbar.classList.toggle('scrolled', window.scrollY > 20);
-            const sections = ['top','skills','experience','projects','archives'];
+            const sections = ['top','skills','experience','projects','archives','contact'];
             const navLinks = document.querySelectorAll('.nav-link');
             let current = 'top';
             sections.forEach(id => {
@@ -544,6 +601,46 @@
             if (inOl) result.push('</ol>');
             if (inUl) result.push('</ul>');
             return result.join('');
+        }
+
+
+        async function submitContactForm() {
+            const name = document.getElementById('contact-name').value.trim();
+            const email = document.getElementById('contact-email').value.trim();
+            const message = document.getElementById('contact-message').value.trim();
+            const btn = document.getElementById('contact-submit-btn');
+            const btnText = document.getElementById('contact-btn-text');
+            const btnIcon = document.getElementById('contact-btn-icon');
+
+            if (!name || !email || !message) {
+                alert('Please fill in all fields.');
+                return;
+            }
+
+            // Loading state
+            btn.disabled = true;
+            btnText.textContent = 'Sending...';
+            btnIcon.innerHTML = '<circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" class="opacity-25" fill="none"/><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"/>';
+
+            try {
+                const res = await fetch('https://formspree.io/f/xgolgrek', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    body: JSON.stringify({ name, email, message })
+                });
+
+                if (res.ok) {
+                    document.getElementById('contact-form-wrapper').classList.add('hidden');
+                    document.getElementById('contact-success').classList.remove('hidden');
+                } else {
+                    throw new Error('Failed');
+                }
+            } catch (e) {
+                btnText.textContent = 'Send Message';
+                btnIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>';
+                btn.disabled = false;
+                alert('Something went wrong. Please try again or email me directly.');
+            }
         }
 
         function appendMessage(t, s) {
