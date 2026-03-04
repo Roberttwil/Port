@@ -60,8 +60,6 @@
 
     <header id="top" class="min-h-screen flex items-center px-6 md:px-16 bg-gradient-to-br from-slate-100 via-white to-blue-50">
         <div class="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center py-20">
-            
-
             <div class="fade-in-up flex flex-col items-center text-center">
                 <div class="relative w-44 h-44 md:w-56 md:h-56 mb-6">
                     <img src="images/profile.png" alt="Robert William" class="rounded-3xl object-cover shadow-2xl border-4 border-white w-full h-full">
@@ -89,7 +87,6 @@
                 </div>
             </div>
 
-
             <div class="fade-in-up" style="transition-delay: 150ms;">
                 <p class="text-xs font-bold text-blue-500 uppercase tracking-widest mb-4">About Me</p>
                 <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-5 leading-snug">Hi, I'm Robert — I build intelligent systems that actually work.</h2>
@@ -106,7 +103,6 @@
                     <span class="px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-xs font-semibold">Open to Work</span>
                 </div>
             </div>
-
         </div>
     </header>
 
@@ -157,7 +153,6 @@
         <div class="max-w-4xl mx-auto fade-in-up">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-slate-900">Experience</h2>
             <div class="relative border-l-2 border-blue-200 ml-3 md:ml-6 space-y-12">
-                
                 <div class="relative pl-8 md:pl-10">
                     <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-blue-600 border-4 border-white shadow-sm"></div>
                     <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-lg hover:border-blue-100 transition duration-300 group">
@@ -176,7 +171,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="relative pl-8 md:pl-10">
                     <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-slate-300 border-4 border-white shadow-sm"></div>
                     <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-lg hover:border-blue-100 transition duration-300 group">
@@ -195,7 +189,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="relative pl-8 md:pl-10">
                     <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-slate-200 border-4 border-white shadow-sm"></div>
                     <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-lg transition duration-300">
@@ -215,7 +208,6 @@
         <div class="max-w-6xl mx-auto">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Featured Case Studies</h2>
             <p class="text-center text-slate-500 mb-16 max-w-2xl mx-auto">Deep dive into the complex architectures and engineering challenges I've solved.</p>
-            
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-slate-100 flex flex-col fade-in-up">
                     <div class="h-48 bg-gradient-to-tr from-blue-100 to-indigo-50 flex flex-col items-center justify-center p-6">
@@ -223,13 +215,12 @@
                     </div>
                     <div class="p-8 flex-grow flex flex-col items-start">
                         <h3 class="font-bold text-2xl mb-2 text-slate-900">EduSign App</h3>
-                        <p class="text-slate-600 mb-6 flex-grow text-sm">Automated sign language video synthesis and AI-driven quiz generation.</p>
+                        <p class="text-slate-600 mb-6 flex-grow text-sm">Automated sign language video synthesis and AI-driven quiz generation for deaf and hard-of-hearing learners.</p>
                         <button onclick="openModal('modal-edusign')" class="text-blue-600 font-semibold flex items-center gap-2 hover:gap-3 transition-all">
                             Read Engineering Details <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                         </button>
                     </div>
                 </div>
-
                 <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-slate-100 flex flex-col fade-in-up" style="transition-delay: 100ms;">
                     <div class="h-48 overflow-hidden">
                         <img src="images/RAG.png" alt="RAG Architecture" class="w-full h-full object-cover">
@@ -242,7 +233,6 @@
                         </button>
                     </div>
                 </div>
-
                 <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-slate-100 flex flex-col fade-in-up" style="transition-delay: 200ms;">
                     <div class="h-48 overflow-hidden">
                         <img src="images/dashboard.png" alt="Dashboard Rescue" class="w-full h-full object-cover">
@@ -299,49 +289,92 @@
         </div>
     </footer>
 
-
+    <!-- EduSign Modal - UPDATED -->
     <div id="modal-edusign" class="hidden fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-[10000] flex items-center justify-center p-4 transition-all duration-300 opacity-0">
         <div class="bg-white rounded-2xl max-w-3xl w-full p-8 md:p-10 relative transform scale-95 transition-transform duration-300 max-h-[90vh] overflow-y-auto">
             <button onclick="closeModal('modal-edusign')" class="absolute top-5 right-5 w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 text-slate-500 hover:bg-slate-200 hover:text-slate-900 transition">&times;</button>
             <div class="mb-6 inline-block px-3 py-1 bg-blue-100 text-blue-700 rounded-lg text-sm font-bold tracking-wide uppercase">Engineering Details</div>
-            <h3 class="text-3xl font-bold text-slate-900 mb-6">EduSign Architecture</h3>
-            <div class="prose prose-slate max-w-none text-slate-600 space-y-4">
-                <p><strong>Note:</strong> Visual representation is documented via Figma as the live application environment is restricted by strict security protocols.</p>
-                <p>The core challenge was building the automated sign language video synthesis and learning module pipelines:</p>
-                <p><strong>1. Dynamic Video Interpreter:</strong> Utilizes <strong>Whisper AI</strong> to generate accurate transcripts. I built a backend to process transcript word-by-word and query a dataset of SIBI (Indonesian Sign Language) clips for dynamic stitching.</p>
-                <p><strong>2. Automated Assessment:</strong> Integrated Google Cloud with Firebase, triggering <strong>Groq API</strong> to automatically generate multiple-choice questions from video context.</p>
+            <h3 class="text-3xl font-bold text-slate-900 mb-2">EduSign: Accessible Learning Through Sign Language Synthesis & AI</h3>
+            <p class="text-slate-500 text-sm mb-6 italic">Note: UI screenshots are documented via Figma due to institutional security restrictions on the live environment.</p>
+            <div class="space-y-5 text-slate-600 text-[15px] leading-relaxed">
+                <p>EduSign is a mobile application built for the deaf and hard-of-hearing community, enabling teachers to upload learning videos that are automatically paired with synchronized Indonesian Sign Language (SIBI) animations — making educational content genuinely accessible without any manual effort.</p>
+                <div class="bg-blue-50 border border-blue-100 rounded-xl p-5">
+                    <h4 class="font-bold text-slate-800 mb-3">1. Sign Language Video Synthesis Pipeline</h4>
+                    <p>When a teacher submits a YouTube link, the video ID is stored in Firebase. A local processing script — running on a team member's machine due to the multi-GB Whisper AI model being impractical to host on free cloud infrastructure — extracts a subtitle file (.SRT) from the video's audio.</p>
+                    <p class="mt-3">The real complexity lies in preprocessing: every word in the transcript is morphologically reduced to its root form (e.g., <em>"ayam dimakan buaya"</em> becomes <em>ayam + makan + buaya</em>), then matched word-by-word against a local SIBI dataset where each clip is named after its corresponding word. These clips are stitched together and overlaid in the bottom-right corner of the screen in sync with the original video, so learners see both the lesson and its sign language translation simultaneously. Once processed, the SRT is pushed to Firebase Storage for downstream use by the quiz system.</p>
+                </div>
+                <div class="bg-indigo-50 border border-indigo-100 rounded-xl p-5">
+                    <h4 class="font-bold text-slate-800 mb-3">2. AI-Powered Quiz Generation (My Core Contribution)</h4>
+                    <p>I built the complete quiz system and authentication layer. Teachers can create quizzes manually — inputting multiple-choice questions, options, and correct answers linked to a video ID — or trigger AI-generated quizzes in one click.</p>
+                    <p class="mt-3">For AI generation, the video's SRT transcript is sent to the <strong>Groq API</strong> (running Llama 3.1 70B), which returns 5 structured multiple-choice questions with answer choices and correct answers ready to store. The 5-question cap was a deliberate cost-control decision.</p>
+                    <p class="mt-3">A critical security challenge: API keys cannot be embedded in Flutter client code. My solution was routing all Groq API calls through a <strong>Google Cloud Function</strong> connected to Firebase — the app triggers the function, which handles the request server-side and returns the quiz data safely, keeping the API key out of the client entirely.</p>
+                    <p class="mt-3">I also implemented <strong>Google OAuth</strong> authentication, giving teachers and students a secure, frictionless login experience across the platform.</p>
+                </div>
             </div>
             <div class="mt-8 flex flex-wrap gap-2 border-t pt-6 border-slate-100">
                 <span class="text-xs font-semibold px-2 py-1 bg-slate-100 text-slate-500 rounded">Whisper AI</span>
                 <span class="text-xs font-semibold px-2 py-1 bg-slate-100 text-slate-500 rounded">Groq API</span>
                 <span class="text-xs font-semibold px-2 py-1 bg-slate-100 text-slate-500 rounded">Firebase</span>
+                <span class="text-xs font-semibold px-2 py-1 bg-slate-100 text-slate-500 rounded">Google Cloud Functions</span>
+                <span class="text-xs font-semibold px-2 py-1 bg-slate-100 text-slate-500 rounded">Flutter</span>
+                <span class="text-xs font-semibold px-2 py-1 bg-slate-100 text-slate-500 rounded">Google OAuth</span>
+                <span class="text-xs font-semibold px-2 py-1 bg-slate-100 text-slate-500 rounded">SIBI Dataset</span>
             </div>
         </div>
     </div>
 
+    <!-- RAG Modal - UPDATED -->
     <div id="modal-rag" class="hidden fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-[10000] flex items-center justify-center p-4 transition-all duration-300 opacity-0">
         <div class="bg-white rounded-2xl max-w-3xl w-full p-8 md:p-10 relative transform scale-95 transition-transform duration-300 max-h-[90vh] overflow-y-auto">
             <button onclick="closeModal('modal-rag')" class="absolute top-5 right-5 w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 text-slate-500 hover:bg-slate-200 hover:text-slate-900 transition">&times;</button>
             <div class="mb-6 inline-block px-3 py-1 bg-emerald-100 text-emerald-700 rounded-lg text-sm font-bold tracking-wide uppercase">Engineering Details</div>
-            <h3 class="text-3xl font-bold text-slate-900 mb-6">Strict RAG Architecture against Hallucinations</h3>
-            <div class="prose prose-slate max-w-none text-slate-600 space-y-4">
-                <p>While connecting the RAG pipeline to MongoDB Atlas was straightforward, the real challenge was deploying the model locally and ensuring <strong>zero hallucinations</strong> for academic use cases.</p>
-                <p>I utilized MongoDB Atlas's Vector Search (using <strong>Cosine Similarity</strong>) to retrieve the top relevant document chunks. The core effort went into designing highly restrictive prompting for <strong>Llama 3.1</strong> to only generate responses based on retrieved chunks.</p>
+            <h3 class="text-3xl font-bold text-slate-900 mb-6">Hallucination-Free Academic Chatbot: A 3-Tier RAG Architecture</h3>
+            <div class="space-y-5 text-slate-600 text-[15px] leading-relaxed">
+                <p>Academic helpdesks face a recurring problem: staff get overwhelmed answering repetitive questions about enrollment deadlines, course requirements, and program details — information that already exists but isn't easily accessible. This chatbot acts as a first line of response, filtering out routine queries so human staff can focus on genuinely complex cases.</p>
+                <div class="bg-emerald-50 border border-emerald-100 rounded-xl p-5">
+                    <h4 class="font-bold text-slate-800 mb-2">Knowledge Base & Admin System</h4>
+                    <p>The knowledge base was seeded from an existing institutional Q&A dataset, structured with <strong>tags</strong> (topics) and <strong>context</strong> (question-answer pairs), importable in bulk via JSON through a custom admin dashboard. Each Q&A pair is stored as an individual chunk in <strong>MongoDB Atlas</strong> for granular retrieval. The architecture supports any text format — Q&A pairs were used here, but narrative paragraphs work equally well. Three user roles are supported: <strong>public users</strong> (general queries), <strong>registered students</strong> (who can also flag knowledge gaps to the admin), and <strong>admins</strong> (full CRUD and bulk import).</p>
+                </div>
+                <div class="bg-teal-50 border border-teal-100 rounded-xl p-5">
+                    <h4 class="font-bold text-slate-800 mb-2">Retrieval & Generation Pipeline</h4>
+                    <p>When a user submits a query, it's converted into a vector embedding and run against <strong>MongoDB Atlas Vector Search</strong> using cosine similarity, retrieving the top 6 most relevant chunks. The number 6 was a practical constraint — running <strong>Llama 3.1 locally via Ollama</strong> on personal hardware required balancing response quality against memory and inference speed. Those chunks are then passed to the model with a strictly engineered system prompt instructing it to respond as a professional helpdesk assistant that only answers from the provided context and never fabricates information.</p>
+                </div>
+                <div class="bg-slate-50 border border-slate-200 rounded-xl p-5">
+                    <h4 class="font-bold text-slate-800 mb-3">3-Tier Response Logic</h4>
+                    <div class="space-y-3">
+                        <div class="flex items-start gap-3">
+                            <span class="mt-0.5 w-6 h-6 rounded-full bg-red-100 text-red-600 text-xs font-bold flex items-center justify-center flex-shrink-0">1</span>
+                            <p><strong>Irrelevant question</strong> — Bot declines and explains the question is out of scope.</p>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="mt-0.5 w-6 h-6 rounded-full bg-yellow-100 text-yellow-700 text-xs font-bold flex items-center justify-center flex-shrink-0">2</span>
+                            <p><strong>Relevant but not in knowledge base</strong> — Bot redirects the user to a human helpdesk.</p>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="mt-0.5 w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 text-xs font-bold flex items-center justify-center flex-shrink-0">3</span>
+                            <p><strong>Relevant and found in knowledge base</strong> — Bot generates a grounded, professional response from the retrieved chunks.</p>
+                        </div>
+                    </div>
+                </div>
+                <p>The choice to run locally rather than use a cloud API was a deliberate design decision — exposing the system publicly without authentication would risk API cost abuse, a real-world constraint worth engineering around even at prototype stage.</p>
             </div>
             <div class="mt-8 flex flex-wrap gap-2 border-t pt-6 border-slate-100">
                 <span class="text-xs font-semibold px-2 py-1 bg-slate-100 text-slate-500 rounded">RAG</span>
                 <span class="text-xs font-semibold px-2 py-1 bg-slate-100 text-slate-500 rounded">Llama 3.1</span>
+                <span class="text-xs font-semibold px-2 py-1 bg-slate-100 text-slate-500 rounded">Ollama</span>
                 <span class="text-xs font-semibold px-2 py-1 bg-slate-100 text-slate-500 rounded">MongoDB Atlas</span>
+                <span class="text-xs font-semibold px-2 py-1 bg-slate-100 text-slate-500 rounded">Vector Search</span>
+                <span class="text-xs font-semibold px-2 py-1 bg-slate-100 text-slate-500 rounded">Cosine Similarity</span>
             </div>
         </div>
     </div>
 
+    <!-- Food Rescue Modal - unchanged -->
     <div id="modal-pm" class="hidden fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-[10000] flex items-center justify-center p-4 transition-all duration-300 opacity-0">
         <div class="bg-white rounded-2xl max-w-4xl w-full p-8 md:p-10 relative transform scale-95 transition-transform duration-300 max-h-[90vh] overflow-y-auto">
             <button onclick="closeModal('modal-pm')" class="absolute top-5 right-5 w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 text-slate-500 hover:bg-slate-200 hover:text-slate-900 transition">&times;</button>
             <div class="mb-6 inline-block px-3 py-1 bg-purple-100 text-purple-700 rounded-lg text-sm font-bold tracking-wide uppercase">Engineering Details</div>
             <h3 class="text-3xl font-bold text-slate-900 mb-6">Managing SDLC & Whitebox Testing Implementation</h3>
-            
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
                 <div class="group">
                     <img src="images/map.jpeg" alt="Location Map" class="rounded-xl border border-slate-200 shadow-sm w-full h-48 object-cover">
@@ -356,10 +389,9 @@
                     <span class="text-[10px] text-slate-400 mt-1 block text-center italic">Order Management</span>
                 </div>
             </div>
-
-            <div class="prose prose-slate max-w-none text-slate-600 space-y-4 border-t pt-6">
+            <div class="space-y-4 text-slate-600 text-[15px] leading-relaxed border-t pt-6">
                 <p>Leading the Software Engineering Project (PPL) for a location-based surplus food delivery app (utilizing Google Maps API) required balancing team dynamics with rigorous technical standards.</p>
-                <p>Beyond standard Project Manager duties—such as tracking weekly agile sprint targets via Trello and acting as the crucial communication bridge between the Frontend and Backend teams—the biggest technical challenge I tackled was <strong>Quality Assurance</strong>.</p>
+                <p>Beyond standard Project Manager duties — such as tracking weekly agile sprint targets via Trello and acting as the crucial communication bridge between the Frontend and Backend teams — the biggest technical challenge I tackled was <strong>Quality Assurance</strong>.</p>
                 <p>I initiated and oversaw the implementation of rigorous internal <strong>Whitebox Testing using Jest</strong>. This ensured that despite the rapid development cycle and integrating complex location-based APIs, the core backend logic and application state remained stable and resilient against regressions.</p>
             </div>
             <div class="mt-8 flex flex-wrap gap-2 border-t pt-6 border-slate-100">
