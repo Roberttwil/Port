@@ -367,7 +367,7 @@
                 <div class="bg-indigo-50 border border-indigo-100 rounded-xl p-5">
                     <h4 class="font-bold text-slate-800 mb-3">2. AI-Powered Quiz Generation (My Core Contribution)</h4>
                     <p>I built the complete quiz system and authentication layer. Teachers can create quizzes manually — inputting multiple-choice questions, options, and correct answers linked to a video ID — or trigger AI-generated quizzes in one click.</p>
-                    <p class="mt-3">For AI generation, the video's SRT transcript is sent to the <strong>Groq API</strong> (running Llama GPT OSS-120b), which returns 5 structured multiple-choice questions with answer choices and correct answers ready to store. The 5-question cap was a deliberate cost-control decision.</p>
+                    <p class="mt-3">For AI generation, the video's SRT transcript is sent to the <strong>Groq API</strong> (running GPT OSS-120b), which returns 5 structured multiple-choice questions with answer choices and correct answers ready to store. The 5-question cap was a deliberate cost-control decision.</p>
                     <p class="mt-3">A critical security challenge: API keys cannot be embedded in Flutter client code. My solution was routing all Groq API calls through a <strong>Google Cloud Function</strong> connected to Firebase — the app triggers the function, which handles the request server-side and returns the quiz data safely, keeping the API key out of the client entirely.</p>
                     <p class="mt-3">I also implemented <strong>Google OAuth</strong> authentication, giving teachers and students a secure, frictionless login experience across the platform.</p>
                 </div>
