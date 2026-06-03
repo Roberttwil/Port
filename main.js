@@ -157,7 +157,10 @@ document.addEventListener('DOMContentLoaded', function() {
         effect: "coverflow",
         grabCursor: true,
         centeredSlides: true,
-        slidesPerView: "auto",
+        slidesPerView: 1.2,
+        breakpoints: {
+            768: { slidesPerView: 2.5 }
+        },
         loop: true,
         coverflowEffect: {
             rotate: 15,
