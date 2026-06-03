@@ -159,7 +159,7 @@ document.addEventListener('DOMContentLoaded', function() {
         centeredSlides: true,
         slidesPerView: 1.2,
         breakpoints: {
-            768: { slidesPerView: 2.5 }
+            768: { slidesPerView: 1.8 }
         },
         loop: true,
         coverflowEffect: {
