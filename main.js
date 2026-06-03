@@ -153,14 +153,21 @@ function appendMessage(t, s) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Clone slides dynamically to ensure perfect infinite looping in Swiper 11
+    const swiperWrapper = document.querySelector('.mySwiper .swiper-wrapper');
+    if (swiperWrapper) {
+        const slides = swiperWrapper.querySelectorAll('.swiper-slide');
+        slides.forEach(slide => {
+            swiperWrapper.appendChild(slide.cloneNode(true));
+        });
+    }
+
     var swiper = new Swiper(".mySwiper", {
         effect: "coverflow",
         grabCursor: true,
         centeredSlides: true,
         slidesPerView: "auto",
         loop: true,
-        loopedSlides: 4,
-        loopAdditionalSlides: 4,
         coverflowEffect: {
             rotate: 15,
             stretch: 0,

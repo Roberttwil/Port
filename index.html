@@ -474,39 +474,59 @@
         <div class="bg-white rounded-2xl max-w-4xl w-full p-8 md:p-10 relative transform scale-95 transition-transform duration-300 max-h-[90vh] overflow-y-auto">
             <button onclick="closeModal('modal-wa')" class="absolute top-5 right-5 w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 text-slate-500 hover:bg-slate-200 hover:text-slate-900 transition">&times;</button>
             <div class="mb-6 inline-block px-3 py-1 bg-emerald-100 text-emerald-700 rounded-lg text-sm font-bold tracking-wide uppercase">Engineering Details</div>
-            <h3 class="text-3xl font-bold text-slate-900 mb-6">WhatsApp AI Assistant: Intelligent Automation & Web Scraping</h3>
+            <h3 class="text-3xl font-bold text-slate-900 mb-6">WhatsApp AI Assistant (v2.0): Multimodal & Dual-Agent</h3>
             
             <div class="space-y-5 text-slate-600 text-[15px] leading-relaxed">
-                <p>An intelligent WhatsApp Bot deployed to Microsoft Azure that serves as an always-on AI assistant. It integrates Large Language Models (LLMs) with real-time web scraping and YouTube transcript extraction capabilities, allowing it to provide up-to-date information, summarize videos, and maintain conversation context.</p>
+                <p>An intelligent WhatsApp Bot deployed to Azure, now featuring <strong>Dual-Agent Architecture</strong> and <strong>Vision (Multimodal)</strong> capabilities. It dynamically routes tasks between specialized models to optimize cost, speed, and intelligence.</p>
                 
-                <div class="bg-emerald-50 border border-emerald-100 rounded-xl p-5">
-                    <h4 class="font-bold text-slate-800 mb-2">Core Runtime & Conversation Memory</h4>
-                    <p>Built using <strong>Node.js</strong> and <strong>whatsapp-web.js</strong> to hijack WhatsApp Web via a headless Chrome (Puppeteer) instance. To give the AI a persistent memory, conversation histories are stored in a <strong>MongoDB Atlas</strong> NoSQL cloud database. This ensures the bot can recall previous contexts seamlessly as if conversing with a human.</p>
-                </div>
-                
-                <div class="bg-slate-50 border border-slate-200 rounded-xl p-5">
-                    <h4 class="font-bold text-slate-800 mb-2">AI Engine & Real-Time Research Tools</h4>
-                    <p>The reasoning engine is powered by the <strong>OpenRouter API</strong>. The AI dynamically decides if it can answer directly or needs to pull live data. For live data, it triggers scraping modules:</p>
-                    <ul class="list-disc list-outside ml-4 space-y-1 mt-2">
-                        <li><strong>Google Search & Web Scraping:</strong> Uses ScraperAPI (to bypass anti-bot systems) and Cheerio to parse HTML and extract article contents.</li>
-                        <li><strong>YouTube Summarization:</strong> Uses youtube-transcript to pull video subtitles for the AI to summarize.</li>
+                <div class="bg-indigo-50 border border-indigo-100 rounded-xl p-5">
+                    <h4 class="font-bold text-slate-800 mb-2">Dual-Agent AI Architecture</h4>
+                    <p>Uses a dynamic routing system with two distinct brains:</p>
+                    <ul class="list-disc list-outside ml-4 mt-2 space-y-1">
+                        <li><strong>Main Brain (Text Model):</strong> Handles conversation logic, memory management, and reasoning (e.g., Llama 3.1 or GPT-3.5).</li>
+                        <li><strong>Vision Brain (Multimodal):</strong> A specialized model (e.g., Gemini 1.5 Flash) invoked only when images are received. It translates visual data into descriptive text before passing it to the Main Brain.</li>
                     </ul>
                 </div>
                 
+                <div class="bg-emerald-50 border border-emerald-100 rounded-xl p-5">
+                    <h4 class="font-bold text-slate-800 mb-3">System Workflow</h4>
+                    <div class="flex flex-col items-center gap-2 font-medium text-xs sm:text-sm text-center p-4 bg-white border border-slate-200 rounded-lg mb-4">
+                        <div class="px-3 py-1.5 bg-slate-100 rounded-md border border-slate-200 w-full max-w-xs">1. User sends Photo + Text</div>
+                        <div class="text-slate-400">↓</div>
+                        <div class="px-3 py-1.5 bg-blue-100 text-blue-700 rounded-md border border-blue-200 w-full max-w-xs">2. Vision Model describes Image</div>
+                        <div class="text-slate-400">↓</div>
+                        <div class="px-3 py-1.5 bg-purple-100 text-purple-700 rounded-md border border-purple-200 w-full max-w-xs">3. Image Description merged with User Text</div>
+                        <div class="text-slate-400">↓</div>
+                        <div class="px-3 py-1.5 bg-emerald-100 text-emerald-700 rounded-md border border-emerald-200 w-full max-w-xs">4. Main Text Model + MongoDB Memory</div>
+                        <div class="text-slate-400">↓</div>
+                        <div class="px-3 py-1.5 bg-slate-100 rounded-md border border-slate-200 w-full max-w-xs">5. Response sent to WhatsApp</div>
+                    </div>
+                    <h5 class="font-bold text-sm text-emerald-800">Vision-as-a-Preprocessor Strategy</h5>
+                    <p class="text-sm mt-1">This prevents heavy image files from bloating the database. The image is instantly translated into text, and the Main Brain simply reads the description as if it "saw" the image itself.</p>
+                </div>
+                
+                <div class="bg-slate-50 border border-slate-200 rounded-xl p-5">
+                    <h4 class="font-bold text-slate-800 mb-2">Memory & Natural RAG</h4>
+                    <p>Context is maintained using a <strong>Sliding-Window Memory</strong> stored in <strong>MongoDB Atlas</strong>. Additionally, the bot supports <strong>Natural RAG</strong>—users can simply "swipe and reply" to older messages, and the bot instantly regains context without needing massive vector databases.</p>
+                </div>
+
                 <div class="bg-teal-50 border border-teal-100 rounded-xl p-5">
-                    <h4 class="font-bold text-slate-800 mb-2">Infrastructure & Memory Optimization</h4>
-                    <p>Deployed on a <strong>Microsoft Azure Virtual Machine</strong> (B2ats_v2: 2 vCPU, 1 GB RAM). Because running headless Chrome on 1GB RAM is extremely prone to Out-of-Memory (OOM) crashes, I implemented <strong>Linux Swap Memory</strong> to convert 2GB of disk space into virtual RAM. The process is kept alive 24/7 using <strong>PM2</strong> daemon manager, and authentication sessions are securely transferred from local to server to prevent Puppeteer timeouts during QR scanning.</p>
+                    <h4 class="font-bold text-slate-800 mb-2">Infrastructure & Tools</h4>
+                    <ul class="list-disc list-outside ml-4 mt-2 space-y-1">
+                        <li><strong>Scraping Tools:</strong> ScraperAPI (anti-bot bypass) and Cheerio for web extraction, plus undocumented APIs for YouTube transcripts.</li>
+                        <li><strong>Deployment:</strong> Microsoft Azure VM (Linux) with 2GB Virtual Swap Memory to prevent Headless Chrome OOM crashes, managed via PM2 daemon.</li>
+                    </ul>
                 </div>
             </div>
             
             <div class="mt-8 flex flex-wrap gap-2 border-t pt-6 border-slate-100">
                 <span class="text-xs font-semibold px-2 py-1 bg-slate-100 text-slate-500 rounded">Node.js</span>
                 <span class="text-xs font-semibold px-2 py-1 bg-slate-100 text-slate-500 rounded">Puppeteer</span>
-                <span class="text-xs font-semibold px-2 py-1 bg-slate-100 text-slate-500 rounded">MongoDB Atlas</span>
-                <span class="text-xs font-semibold px-2 py-1 bg-slate-100 text-slate-500 rounded">OpenRouter API</span>
+                <span class="text-xs font-semibold px-2 py-1 bg-slate-100 text-slate-500 rounded">MongoDB</span>
+                <span class="text-xs font-semibold px-2 py-1 bg-blue-50 text-blue-600 rounded">Dual-Agent AI</span>
+                <span class="text-xs font-semibold px-2 py-1 bg-emerald-50 text-emerald-600 rounded">Vision</span>
                 <span class="text-xs font-semibold px-2 py-1 bg-slate-100 text-slate-500 rounded">Azure VM</span>
                 <span class="text-xs font-semibold px-2 py-1 bg-slate-100 text-slate-500 rounded">PM2</span>
-                <span class="text-xs font-semibold px-2 py-1 bg-slate-100 text-slate-500 rounded">Cheerio</span>
             </div>
         </div>
     </div>
