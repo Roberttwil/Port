@@ -133,6 +133,7 @@
                         <span class="px-3 py-1 bg-blue-50 text-blue-700 rounded-lg text-sm font-medium">LangChain</span>
                         <span class="px-3 py-1 bg-blue-50 text-blue-700 rounded-lg text-sm font-medium">Flask</span>
                         <span class="px-3 py-1 bg-blue-50 text-blue-700 rounded-lg text-sm font-medium">Laravel</span>
+                        <span class="px-3 py-1 bg-blue-50 text-blue-700 rounded-lg text-sm font-medium">Puppeteer</span>
                     </div>
                 </div>
                 <div>
@@ -142,6 +143,7 @@
                         <span class="px-3 py-1 bg-emerald-50 text-emerald-700 rounded-lg text-sm font-medium">Firebase</span>
                         <span class="px-3 py-1 bg-emerald-50 text-emerald-700 rounded-lg text-sm font-medium">MySQL</span>
                         <span class="px-3 py-1 bg-emerald-50 text-emerald-700 rounded-lg text-sm font-medium">GCP</span>
+                        <span class="px-3 py-1 bg-emerald-50 text-emerald-700 rounded-lg text-sm font-medium">Azure</span>
                     </div>
                 </div>
                 <div>
@@ -153,6 +155,7 @@
                         <span class="px-3 py-1 bg-orange-50 text-orange-700 rounded-lg text-sm font-medium">Unity</span>
                         <span class="px-3 py-1 bg-orange-50 text-orange-700 rounded-lg text-sm font-medium">Power BI</span>
                         <span class="px-3 py-1 bg-orange-50 text-orange-700 rounded-lg text-sm font-medium">Figma</span>
+                        <span class="px-3 py-1 bg-orange-50 text-orange-700 rounded-lg text-sm font-medium">PM2</span>
                     </div>
                 </div>
             </div>
@@ -218,7 +221,7 @@
         <div class="max-w-6xl mx-auto">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Featured Case Studies</h2>
             <p class="text-center text-slate-500 mb-16 max-w-2xl mx-auto">Deep dive into the complex architectures and engineering challenges I've solved.</p>
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
                 <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-slate-100 flex flex-col fade-in-up">
                     <div class="h-48 bg-gradient-to-tr from-blue-100 to-indigo-50 flex flex-col items-center justify-center p-6">
                         <img src="images/edusign_logo.jpeg" alt="EduSign Logo" class="h-20 w-auto object-contain drop-shadow-md mb-3">
@@ -251,6 +254,19 @@
                         <h3 class="font-bold text-2xl mb-2 text-slate-900">Food Rescue Platform</h3>
                         <p class="text-slate-600 mb-6 flex-grow text-sm">Project Management for a location-based surplus food delivery app ensuring robust SDLC.</p>
                         <button onclick="openModal('modal-pm')" class="text-purple-600 font-semibold flex items-center gap-2 hover:gap-3 transition-all">
+                            Read Engineering Details <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-slate-100 flex flex-col fade-in-up" style="transition-delay: 300ms;">
+                    <div class="h-48 bg-gradient-to-br from-green-50 to-emerald-100 flex flex-col items-center justify-center p-6 relative overflow-hidden">
+                        <svg class="w-20 h-20 text-emerald-500 drop-shadow-md z-10" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.393.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm.029 18.88c-1.161 0-2.305-.292-3.318-.844l-3.677.964.984-3.595c-.607-1.052-.927-2.246-.926-3.468.001-3.825 3.113-6.937 6.937-6.937 1.856.001 3.598.723 4.907 2.034 1.31 1.311 2.031 3.054 2.03 4.908-.001 3.825-3.113 6.938-6.937 6.938z"/></svg>
+                        <h4 class="absolute bottom-2 right-4 text-emerald-700/10 font-black text-6xl select-none z-0">AI</h4>
+                    </div>
+                    <div class="p-8 flex-grow flex flex-col items-start">
+                        <h3 class="font-bold text-2xl mb-2 text-slate-900">WhatsApp AI Assistant</h3>
+                        <p class="text-slate-600 mb-6 flex-grow text-sm">Cloud-deployed intelligent bot capable of web scraping, YouTube summarization, and contextual conversation.</p>
+                        <button onclick="openModal('modal-wa')" class="text-emerald-600 font-semibold flex items-center gap-2 hover:gap-3 transition-all">
                             Read Engineering Details <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                         </button>
                     </div>
@@ -459,6 +475,48 @@
                 <span class="text-xs font-semibold px-2 py-1 bg-slate-100 text-slate-500 rounded">Project Management</span>
                 <span class="text-xs font-semibold px-2 py-1 bg-slate-100 text-slate-500 rounded">Jest Testing</span>
                 <span class="text-xs font-semibold px-2 py-1 bg-slate-100 text-slate-500 rounded">Agile SDLC</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- WhatsApp AI Assistant Modal -->
+    <div id="modal-wa" class="hidden fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-[10000] flex items-center justify-center p-4 transition-all duration-300 opacity-0">
+        <div class="bg-white rounded-2xl max-w-4xl w-full p-8 md:p-10 relative transform scale-95 transition-transform duration-300 max-h-[90vh] overflow-y-auto">
+            <button onclick="closeModal('modal-wa')" class="absolute top-5 right-5 w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 text-slate-500 hover:bg-slate-200 hover:text-slate-900 transition">&times;</button>
+            <div class="mb-6 inline-block px-3 py-1 bg-emerald-100 text-emerald-700 rounded-lg text-sm font-bold tracking-wide uppercase">Engineering Details</div>
+            <h3 class="text-3xl font-bold text-slate-900 mb-6">WhatsApp AI Assistant: Intelligent Automation & Web Scraping</h3>
+            
+            <div class="space-y-5 text-slate-600 text-[15px] leading-relaxed">
+                <p>An intelligent WhatsApp Bot deployed to Microsoft Azure that serves as an always-on AI assistant. It integrates Large Language Models (LLMs) with real-time web scraping and YouTube transcript extraction capabilities, allowing it to provide up-to-date information, summarize videos, and maintain conversation context.</p>
+                
+                <div class="bg-emerald-50 border border-emerald-100 rounded-xl p-5">
+                    <h4 class="font-bold text-slate-800 mb-2">Core Runtime & Conversation Memory</h4>
+                    <p>Built using <strong>Node.js</strong> and <strong>whatsapp-web.js</strong> to hijack WhatsApp Web via a headless Chrome (Puppeteer) instance. To give the AI a persistent memory, conversation histories are stored in a <strong>MongoDB Atlas</strong> NoSQL cloud database. This ensures the bot can recall previous contexts seamlessly as if conversing with a human.</p>
+                </div>
+                
+                <div class="bg-slate-50 border border-slate-200 rounded-xl p-5">
+                    <h4 class="font-bold text-slate-800 mb-2">AI Engine & Real-Time Research Tools</h4>
+                    <p>The reasoning engine is powered by the <strong>OpenRouter API</strong>. The AI dynamically decides if it can answer directly or needs to pull live data. For live data, it triggers scraping modules:</p>
+                    <ul class="list-disc list-outside ml-4 space-y-1 mt-2">
+                        <li><strong>Google Search & Web Scraping:</strong> Uses ScraperAPI (to bypass anti-bot systems) and Cheerio to parse HTML and extract article contents.</li>
+                        <li><strong>YouTube Summarization:</strong> Uses youtube-transcript to pull video subtitles for the AI to summarize.</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-teal-50 border border-teal-100 rounded-xl p-5">
+                    <h4 class="font-bold text-slate-800 mb-2">Infrastructure & Memory Optimization</h4>
+                    <p>Deployed on a <strong>Microsoft Azure Virtual Machine</strong> (B2ats_v2: 2 vCPU, 1 GB RAM). Because running headless Chrome on 1GB RAM is extremely prone to Out-of-Memory (OOM) crashes, I implemented <strong>Linux Swap Memory</strong> to convert 2GB of disk space into virtual RAM. The process is kept alive 24/7 using <strong>PM2</strong> daemon manager, and authentication sessions are securely transferred from local to server to prevent Puppeteer timeouts during QR scanning.</p>
+                </div>
+            </div>
+            
+            <div class="mt-8 flex flex-wrap gap-2 border-t pt-6 border-slate-100">
+                <span class="text-xs font-semibold px-2 py-1 bg-slate-100 text-slate-500 rounded">Node.js</span>
+                <span class="text-xs font-semibold px-2 py-1 bg-slate-100 text-slate-500 rounded">Puppeteer</span>
+                <span class="text-xs font-semibold px-2 py-1 bg-slate-100 text-slate-500 rounded">MongoDB Atlas</span>
+                <span class="text-xs font-semibold px-2 py-1 bg-slate-100 text-slate-500 rounded">OpenRouter API</span>
+                <span class="text-xs font-semibold px-2 py-1 bg-slate-100 text-slate-500 rounded">Azure VM</span>
+                <span class="text-xs font-semibold px-2 py-1 bg-slate-100 text-slate-500 rounded">PM2</span>
+                <span class="text-xs font-semibold px-2 py-1 bg-slate-100 text-slate-500 rounded">Cheerio</span>
             </div>
         </div>
     </div>
