@@ -257,6 +257,21 @@
                             </div>
                         </div>
                     </div>
+                    <div class="swiper-slide cursor-grab active:cursor-grabbing">
+                        <div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-100 flex flex-col h-full">
+                            <div class="h-48 bg-gradient-to-br from-indigo-50 to-blue-100 flex flex-col items-center justify-center p-6 relative overflow-hidden">
+                                <svg class="w-20 h-20 text-indigo-500 drop-shadow-md z-10 pointer-events-none" fill="currentColor" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM18 20H6V4h5v6h6v10z"/><path d="M8 12h8v2H8zm0 4h8v2H8z"/></svg>
+                                <h4 class="absolute bottom-2 right-4 text-indigo-700/10 font-black text-6xl select-none z-0">RAG</h4>
+                            </div>
+                            <div class="p-8 flex-grow flex flex-col items-start">
+                                <h3 class="font-bold text-2xl mb-2 text-slate-900">AI Document Auditor</h3>
+                                <p class="text-slate-600 mb-6 flex-grow text-sm">Enterprise-grade Financial Document Intelligence System with Multi-Agent LangGraph and FAISS.</p>
+                                <button onclick="openModal('modal-auditor')" class="text-indigo-600 font-semibold flex items-center gap-2 hover:gap-3 transition-all z-10 relative">
+                                    Read Engineering Details <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="swiper-pagination !-bottom-2"></div>
                 <div class="swiper-button-prev !text-blue-600 !left-0 md:!left-4"></div>
@@ -527,6 +542,52 @@
                 <span class="text-xs font-semibold px-2 py-1 bg-emerald-50 text-emerald-600 rounded">Vision</span>
                 <span class="text-xs font-semibold px-2 py-1 bg-slate-100 text-slate-500 rounded">Azure VM</span>
                 <span class="text-xs font-semibold px-2 py-1 bg-slate-100 text-slate-500 rounded">PM2</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI Document Auditor Modal -->
+    <div id="modal-auditor" class="hidden fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-[10000] flex items-center justify-center p-4 transition-all duration-300 opacity-0">
+        <div class="bg-white rounded-2xl max-w-4xl w-full p-8 md:p-10 relative transform scale-95 transition-transform duration-300 max-h-[90vh] overflow-y-auto">
+            <button onclick="closeModal('modal-auditor')" class="absolute top-5 right-5 w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 text-slate-500 hover:bg-slate-200 hover:text-slate-900 transition">&times;</button>
+            <div class="mb-6 inline-block px-3 py-1 bg-indigo-100 text-indigo-700 rounded-lg text-sm font-bold tracking-wide uppercase">Engineering Details</div>
+            <h3 class="text-3xl font-bold text-slate-900 mb-6">AI Document Auditor: Enterprise Financial RAG</h3>
+            
+            <div class="space-y-5 text-slate-600 text-[15px] leading-relaxed">
+                <p>A production-ready, AI-powered document intelligence platform purpose-built for auditors and financial analysts. It processes complex multi-hundred-page financial reports, extracts borderless tables accurately, and executes multi-hop mathematical reasoning.</p>
+                
+                <div class="bg-blue-50 border border-blue-100 rounded-xl p-5">
+                    <h4 class="font-bold text-slate-800 mb-2">LangGraph Multi-Agent Orchestration</h4>
+                    <p>The query pipeline runs on a stateful multi-node LangGraph architecture consisting of specialized agents:</p>
+                    <ul class="list-disc list-outside ml-4 mt-2 space-y-1">
+                        <li><strong>Router & Decomposer:</strong> Classifies intent and splits complex analytical questions into concurrent atomic sub-queries.</li>
+                        <li><strong>Parallel Researchers:</strong> Executes specialized RAG retrieval concurrently for different data points to avoid token limits.</li>
+                        <li><strong>Synthesizer & Reviewer:</strong> Merges answers and performs hallucination checks against financial accounting rules (e.g., PSAK).</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-emerald-50 border border-emerald-100 rounded-xl p-5">
+                    <h4 class="font-bold text-slate-800 mb-2">Advanced Retrieval-Augmented Generation (RAG)</h4>
+                    <ul class="list-disc list-outside ml-4 mt-2 space-y-1">
+                        <li><strong>Parent-Child Retrieval:</strong> Small child chunks (400 chars) are indexed in FAISS for high-precision vector search. Once found, the LLM is fed the entire parent block (1000 chars) to guarantee full context.</li>
+                        <li><strong>Table Header Injection:</strong> The ingestion pipeline automatically prepends column headers (e.g., "2026 | 2025") to every single row chunk of a table, eliminating year-confusion for the AI.</li>
+                        <li><strong>Local Vector DB:</strong> FAISS and <code class="text-xs bg-emerald-100 px-1 rounded">paraphrase-multilingual-MiniLM-L12-v2</code> run 100% offline, ensuring extreme data privacy.</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-slate-50 border border-slate-200 rounded-xl p-5">
+                    <h4 class="font-bold text-slate-800 mb-2">LLM-Agnostic Engine</h4>
+                    <p>The system dynamically routes workloads across tiers: Groq Llama 3.3 70B for heavy financial analysis, Gemini Flash for standard queries, and Nemotron Vision via OpenRouter as a fallback for pure-image pages.</p>
+                </div>
+            </div>
+            
+            <div class="mt-8 flex flex-wrap gap-2 border-t pt-6 border-slate-100">
+                <span class="text-xs font-semibold px-2 py-1 bg-slate-100 text-slate-500 rounded">FastAPI</span>
+                <span class="text-xs font-semibold px-2 py-1 bg-slate-100 text-slate-500 rounded">Next.js</span>
+                <span class="text-xs font-semibold px-2 py-1 bg-blue-50 text-blue-600 rounded">LangGraph</span>
+                <span class="text-xs font-semibold px-2 py-1 bg-emerald-50 text-emerald-600 rounded">FAISS Vector DB</span>
+                <span class="text-xs font-semibold px-2 py-1 bg-slate-100 text-slate-500 rounded">LlamaParse</span>
+                <span class="text-xs font-semibold px-2 py-1 bg-slate-100 text-slate-500 rounded">Groq Llama 3.3</span>
             </div>
         </div>
     </div>
